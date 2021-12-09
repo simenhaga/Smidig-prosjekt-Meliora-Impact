@@ -1,5 +1,6 @@
 import {useState, UseState} from 'react'
 import Bubble from "./components/Bubble";
+import 'bulma/css/bulma.min.css';
 
 function App() {
   const [showTags, setShowTags] = useState(true)
@@ -14,7 +15,7 @@ function App() {
     }
   ])
   return (
-    <div>
+    <div classname="main">
       <Bubble title={'test'}/>
     </div>
   );
