@@ -6,7 +6,7 @@ function App() {
   const [tags, setTags] = useState([
     {
       id: 1,
-      title: 'Women´s Rights'
+      title: "Women's Rights"
     },
     {
       id: 2,
