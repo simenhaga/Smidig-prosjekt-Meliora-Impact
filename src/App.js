@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, UseState} from 'react'
+import Bubble from "./components/Bubble";
 
 function App() {
+  const [showTags, setShowTags] = useState(true)
+  const [tags, setTags] = useState([
+    {
+      id: 1,
+      title: 'Women´s Rights'
+    },
+    {
+      id: 2,
+      title: 'Education'
+    }
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Bubble/>
     </div>
   );
 }
