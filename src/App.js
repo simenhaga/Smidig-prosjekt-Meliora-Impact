@@ -1,4 +1,4 @@
-import {useState, UseState} from 'react'
+import { useState } from 'react'
 import Bubble from "./components/Bubble";
 import 'bulma/css/bulma.min.css';
 
@@ -7,16 +7,18 @@ function App() {
   const [tags, setTags] = useState([
     {
       id: 1,
-      title: "Women's Rights"
+      title: "Women's Rights",
+      selected: false
     },
     {
       id: 2,
-      title: 'Education'
+      title: 'Education',
+      selected: false
     }
   ])
   return (
     <div className="main">
-      <Bubble title={'test'}/>
+      <Bubble tag={tags.at(0)}/>
     </div>
   );
 }
