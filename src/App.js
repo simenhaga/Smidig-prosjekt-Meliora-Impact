@@ -8,26 +8,33 @@ function App() {
     {
       id: 1,
       title: "Women's Rights",
-      selected: false
+      selectionType: 0
     },
     {
       id: 2,
       title: 'Education',
-      selected: false
+      selectionType: 0
     }
   ])
 
-  const toggleSize = (id) => {
+  const toggleSelected = (id) => {
       setTags(tags.map((tag) =>
-        tag.id === id ? {...tag, selected:
-        !tag.selected} : tag
+        tag.id === id ? {...tag, selectionType:
+        tag.selectionType === 2 ? 0 : ++tag.selectionType} : tag
       ))
   }
+
+  const toggleFavorite = (id) => {
+    setTags(tags.map((tag) => 
+      tag.id === id ? {...tag, selectionType: 0} : tag
+    ))
+  }
+  
   
 
   return (
     <div className="main">
-      <Bubble tag={tags.at(0)} onToggle = {toggleSize}/>
+      <Bubble tag={tags.at(0)} setSelected={toggleSelected} setFavorite={toggleFavorite}/>
     </div>
   );
 }

@@ -14,3 +14,6 @@
 .bubble-large {
     transform: scale(1.5);
 }
+.bubble-favorite {
+    transform: scale(2);
+}

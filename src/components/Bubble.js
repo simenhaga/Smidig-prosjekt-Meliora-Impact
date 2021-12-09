@@ -1,14 +1,12 @@
 import { useState } from "react";
 
-const Bubble = ({tag, onToggle}) => {
-    const [selected, setSelected] = useState(false)
-
-    const toggleSize = () => {
-        console.log(onToggle)
-    }
+const Bubble = ({tag, setSelected, setFavorite}) => {
     return (
-        <div className={`bubble ${tag.selected ? 'bubble-large' : ''}`} onClick={() =>
-            onToggle(tag.id)}>
+        <div className={`bubble 
+        ${tag.selectionType === 1 ? 'bubble-large' : ''}
+        ${tag.selectionType === 2 ? 'bubble-favorite' : ''}
+        `} 
+        onClick={() => setSelected(tag.id)}>
             <label>{tag.title}</label>
         </div>
     )
