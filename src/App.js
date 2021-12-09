@@ -16,9 +16,18 @@ function App() {
       selected: false
     }
   ])
+
+  const toggleSize = (id) => {
+      setTags(tags.map((tag) =>
+        tag.id === id ? {...tag, selected:
+        !tag.selected} : tag
+      ))
+  }
+  
+
   return (
     <div className="main">
-      <Bubble tag={tags.at(0)}/>
+      <Bubble tag={tags.at(0)} onToggle = {toggleSize}/>
     </div>
   );
 }

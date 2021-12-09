@@ -7,8 +7,8 @@ const Bubble = ({tag, onToggle}) => {
         console.log(onToggle)
     }
     return (
-        <div className={'bubble'} onClick={() =>
-            toggleSize(onToggle)}>
+        <div className={`bubble ${tag.selected ? 'bubble-large' : ''}`} onClick={() =>
+            onToggle(tag.id)}>
             <label>{tag.title}</label>
         </div>
     )
