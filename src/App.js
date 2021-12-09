@@ -15,7 +15,7 @@ function App() {
   ])
   return (
     <div>
-      <Bubble/>
+      <Bubble title={'test'}/>
     </div>
   );
 }
