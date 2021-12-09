@@ -1,6 +1,5 @@
 .bubble{
-    background: rgb(238,174,202);
-    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: linear-gradient(90deg, rgba(238,174,202,1), rgba(148,187,233,1) 51%, rgba(238,174,202,1)) var(--x, 0)/ 200%;
     width: 100px;
     height: 100px;
     border-radius: 100%;
@@ -9,12 +8,15 @@
     text-align: center;
     animation-duration: 0.5s;
     animation-timing-function: linear;
-    transition: transform 0.5s;
+    transition-property: transform, background;
+    transition-duration: .5s;
+}
+.bubble:hover{
+    --x: 100%;
 }
 
 .bubble-large {
     transform: scale(1.5);
-    background: linear-gradient(90deg, rgba(148,187,233,1) 0%, rgba(238,174,202,1) 100%);
 }
 .bubble-favorite {
     transform: scale(2);
