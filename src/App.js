@@ -15,7 +15,7 @@ function App() {
     }
   ])
   return (
-    <div classname="main">
+    <div className="main">
       <Bubble title={'test'}/>
     </div>
   );

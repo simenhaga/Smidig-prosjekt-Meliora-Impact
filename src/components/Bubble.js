@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-const Bubble = ({title}) => {
+const Bubble = ({title, onToggle}) => {
     const [selected, setSelected] = useState(false)
 
+    const toggleSize = () => {
+        
+    }
     return (
-        <div style={{backgroundColor: 'red', width: '100px', height: '100px', borderRadius: '100%', display: 'grid', placeItems: 'center'}}>
+        <div className={'bubble'} onClick={() => toggleSize}>
             <label>{title}</label>
         </div>
     )
