@@ -19,6 +19,11 @@ function App() {
       id: 3,
       title: 'Clean Water',
       selectionType: 0
+    },
+    {
+      id: 4,
+      title: 'Human Rights',
+      selectionType: 0
     }
   ])
 
