@@ -15,6 +15,7 @@ body{
     transition-duration: .5s;
     user-select: none;
     margin: 5px 5px;
+    padding: 5px 5px;
 }
 .bubble:hover{
     --x: 100%;
