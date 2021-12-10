@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Bubble from "./components/Bubble";
 import 'bulma/css/bulma.min.css';
 import Bubbles from "./components/Bubbles";
 
