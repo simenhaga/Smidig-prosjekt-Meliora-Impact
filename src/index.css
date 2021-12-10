@@ -8,7 +8,7 @@
     text-align: center;
     animation-duration: 0.5s;
     animation-timing-function: linear;
-    transition-property: transform, background;
+    transition-property: transform, height, width;
     transition-duration: .5s;
     user-select: none;
 }
@@ -17,10 +17,12 @@
 }
 
 .bubble-large {
-    transform: scale(1.5);
+    height: 150px;
+    width: 150px;
 }
 .bubble-favorite {
-    transform: scale(2);
+    height: 200px;
+    width: 200px;
 }
 
 .bubble-container {
