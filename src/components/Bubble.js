@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Bubble = ({tag, setSelected, setFavorite}) => {
+const Bubble = ({tag, setSelected, resetSelected}) => {
     return (
         <div className={`bubble 
         ${tag.selectionType === 1 ? 'bubble-large' : ''}

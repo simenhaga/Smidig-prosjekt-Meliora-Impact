@@ -3,7 +3,6 @@ import Bubble from "./components/Bubble";
 import 'bulma/css/bulma.min.css';
 
 function App() {
-  const [showTags, setShowTags] = useState(true)
   const [tags, setTags] = useState([
     {
       id: 1,
@@ -24,17 +23,9 @@ function App() {
       ))
   }
 
-  const toggleFavorite = (id) => {
-    setTags(tags.map((tag) => 
-      tag.id === id ? {...tag, selectionType: 0} : tag
-    ))
-  }
-  
-  
-
   return (
-    <div className="main">
-      <Bubble tag={tags.at(0)} setSelected={toggleSelected} setFavorite={toggleFavorite}/>
+    <div className="container">
+      <Bubble tag={tags.at(0)} setSelected={toggleSelected}/>
     </div>
   );
 }
