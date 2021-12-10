@@ -10,6 +10,7 @@
     animation-timing-function: linear;
     transition-property: transform, background;
     transition-duration: .5s;
+    user-select: none;
 }
 .bubble:hover{
     --x: 100%;
@@ -21,3 +22,10 @@
 .bubble-favorite {
     transform: scale(2);
 }
+
+.bubble-container {
+    display: grid;
+    justify-content: center;
+    height: 100vh;
+}
+

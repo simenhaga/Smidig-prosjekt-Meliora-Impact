@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Bubble from "./components/Bubble";
 import 'bulma/css/bulma.min.css';
+import Bubbles from "./components/Bubbles";
 
 function App() {
   const [tags, setTags] = useState([
@@ -13,6 +14,11 @@ function App() {
       id: 2,
       title: 'Education',
       selectionType: 0
+    },
+    {
+      id: 3,
+      title: 'Clean Water',
+      selectionType: 0
     }
   ])
 
@@ -24,9 +30,9 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <Bubble tag={tags.at(0)} setSelected={toggleSelected}/>
-    </div>
+      <section className="section bubble-container">
+        <Bubbles className="" tags={tags} toggleSelected={toggleSelected}/>
+      </section>
   );
 }
 
