@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import 'bulma/css/bulma.min.css';
 import Bubbles from "./components/Bubbles";
+import Header from "./components/Header";
 
 function App() {
   const [tags, setTags] = useState([
@@ -35,6 +36,7 @@ function App() {
 
   return (
       <section className="section bubble-container">
+        <Header/>
         <Bubbles className="" tags={tags} toggleSelected={toggleSelected}/>
       </section>
   );
