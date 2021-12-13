@@ -35,7 +35,8 @@ function App() {
   }
 
   return (
-      <div><Header/>
+      <div>
+        <Header/>
       <section className="section bubble-container">
         <Bubbles className="" tags={tags} toggleSelected={toggleSelected}/>
       </section>
