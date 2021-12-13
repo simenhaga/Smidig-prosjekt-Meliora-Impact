@@ -4,7 +4,7 @@ import { MdContacts } from "react-icons/md";
 import { GoGlobe } from "react-icons/go";
 import { FaHandshake } from "react-icons/fa";
 import { MdPermIdentity } from "react-icons/md";
-import logo from '../resources/MelioraLogoEdit.png';
+import logo from '../resources/MelioraLogoEditBlack.png';
 
 const Header = () => {
     return (
