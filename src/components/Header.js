@@ -4,6 +4,7 @@ import { MdContacts } from "react-icons/md";
 import { GoGlobe } from "react-icons/go";
 import { FaHandshake } from "react-icons/fa";
 import { MdPermIdentity } from "react-icons/md";
+import logo from '../resources/MelioraLogoEdit.png';
 
 const Header = () => {
     return (
@@ -12,7 +13,12 @@ const Header = () => {
             <ul>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><img class="logo" src="./resources/MelioraLogo.png" alt="Meliora Logo" /></span>
+                        <span><img class="logo" src={logo} alt="Meliora Logo" /></span>
+                        
+                    </a>
+                </li>
+                <li className={'menu-list'}>
+                    <a href={'#'}>
                         <span><MdHome/></span>
                         <span>Home</span>
                     </a>
