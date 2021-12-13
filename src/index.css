@@ -36,3 +36,16 @@ body{
     place-items: center;
 }
 
+.navigation {
+    background-color: #ffff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.navigation ul {
+    display: flex;
+}
+

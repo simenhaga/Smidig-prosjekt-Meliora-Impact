@@ -1,9 +1,9 @@
 import React from 'react';
 import { MdHome } from "react-icons/md";
-import { MdContacts } from "react-icons/md";
 import { GoGlobe } from "react-icons/go";
 import { FaHandshake } from "react-icons/fa";
 import { MdPermIdentity } from "react-icons/md";
+import {BsFillChatFill} from "react-icons/all";
 
 const Header = () => {
     return (
@@ -12,7 +12,7 @@ const Header = () => {
             <ul>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><img class="logo" src="./resources/MelioraLogo.png" alt="Meliora Logo" /></span>
+                        <span><img class="logo" src="../resources/MelioraLogo.png" alt="Meliora Logo" /></span>
                         <span><MdHome/></span>
                         <span>Home</span>
                     </a>
@@ -31,7 +31,7 @@ const Header = () => {
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><MdContacts/></span>
+                        <span><BsFillChatFill/></span>
                         <span>Contact</span>
                     </a>
                 </li>
