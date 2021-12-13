@@ -60,17 +60,15 @@ body{
 
 .navigation-container {
     background-color: #ffff;
-    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
-    /* width: 30%; */
-    /* height: 90px; */
 }
 
 .navigation-container ul {
     display: flex;
+    /* justify-content: space-evenly; */
     width: 100%;
 }
 
@@ -104,7 +102,7 @@ body{
 }
 
 .navigation-container ul li.active a .icon {
-    transform: translateY(-250%);
+    transform: translateY(-200%);
 }
 
 .navigation-container ul li a .text {
@@ -126,7 +124,7 @@ body{
 
 .indicator {
     position: absolute;
-    top: -30%;
+    top: -38%;
     width: 70px;
     height: 70px;
     background: linear-gradient(90deg, rgba(238,174,202,1), rgba(148,187,233,1) 51%, rgba(238,174,202,1)) var(--x, 0)/ 200%;

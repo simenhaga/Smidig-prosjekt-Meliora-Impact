@@ -20,45 +20,47 @@ const Header = () => {
     return (
         <div className='container header-cont is-fluid'>
             <div className='columns is-vcentered'>
-                <div className='column is-8 has-text-left'>
-                    <img style={{transform: 'scale(0.8)'}} src={logo}/>
+                <div className='column is-4 has-text-left'>
+                    <img style={{height: '50px', width: '50px'}} src={logo}/>
 
                 </div>
                 <div className='column'>
-                    <div className={'navigation-container'}>
-                        <ul>
-                            <li className={'list active'}>
-                                <a href={'#'}>
-                                    <span className={'icon'}><MdHome/></span>
-                                    <span className={'text'}>Home</span>
-                                </a>
-                            </li>
-                            <li className={'list'}>
-                                <a href={'#'}>
-                                    <span className={'icon'}><GoGlobe/></span>
-                                    <span className={'text'}>Vision</span>
-                                </a>
-                            </li>
-                            <li className={'list'}>
-                                <a href={'#'}>
-                                    <span className={'icon'}><FaHandshake/></span>
-                                    <span className={'text'}>Join us</span>
-                                </a>
-                            </li>
-                            <li className={'list'}>
-                                <a href={'#'}>
-                                    <span className={'icon'}><MdContacts/></span>
-                                    <span className={'text'}>Contact</span>
-                                </a>
-                            </li>
-                            <li className={'list'}>
-                                <a href={'#'}>
-                                    <span className={'icon'}><MdPermIdentity/></span>
-                                    <span className={'text'}>Sign up</span>
-                                </a>
-                            </li>
-                            <div className={'indicator'}/>
-                        </ul>
+                    <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                        <div className={'navigation-container'}>
+                            <ul>
+                                <li className={'list active'}>
+                                    <a href={'#'}>
+                                        <span className={'icon'}><MdHome/></span>
+                                        <span className={'text'}>Home</span>
+                                    </a>
+                                </li>
+                                <li className={'list'}>
+                                    <a href={'#'}>
+                                        <span className={'icon'}><GoGlobe/></span>
+                                        <span className={'text'}>Vision</span>
+                                    </a>
+                                </li>
+                                <li className={'list'}>
+                                    <a href={'#'}>
+                                        <span className={'icon'}><FaHandshake/></span>
+                                        <span className={'text'}>Join us</span>
+                                    </a>
+                                </li>
+                                <li className={'list'}>
+                                    <a href={'#'}>
+                                        <span className={'icon'}><MdContacts/></span>
+                                        <span className={'text'}>Contact</span>
+                                    </a>
+                                </li>
+                                <li className={'list'}>
+                                    <a href={'#'}>
+                                        <span className={'icon'}><MdPermIdentity/></span>
+                                        <span className={'text'}>Sign up</span>
+                                    </a>
+                                </li>
+                                <div className={'indicator'}/>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
