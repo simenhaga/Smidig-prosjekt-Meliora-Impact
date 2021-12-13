@@ -30,7 +30,7 @@ const Header = () => {
                 <li className={'list'}>
                     <a href={'#'}>
                         <span className={'icon'}><GoGlobe/></span>
-                        <span className={'text'}>Our vision</span>
+                        <span className={'text'}>Vision</span>
                     </a>
                 </li>
                 <li className={'list'}>

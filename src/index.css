@@ -95,12 +95,12 @@ body{
     letter-spacing: 0.05em;
     transition: 0.5s;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(0px);
 }
 
 .navigation ul li.active a .text {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(30px);
 }
 
 .indicator {
