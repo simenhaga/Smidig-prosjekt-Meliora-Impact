@@ -51,7 +51,6 @@ const App = () => {
 					< Route exact path="/" element={<Sandbox/>}/>
 
 					< Route exact path="/bubbles" element={<OldBubblePage tags={tags} toggleSelected={toggleSelected}/>}/>
-					< Route element={<Sandbox/>}/>
 				</Routes>
 			</Router>
 		</div>
