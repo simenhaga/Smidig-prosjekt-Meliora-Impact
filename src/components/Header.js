@@ -19,32 +19,32 @@ const Header = () => {
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><MdHome/></span>
-                        <span>Home</span>
+                        <span className={'icon'}><MdHome/></span>
+                        <span className={'text'}>Home</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><GoGlobe/></span>
-                        <span>Our vision</span>
+                        <span className={'icon'}><GoGlobe/></span>
+                        <span className={'text'}>Our vision</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><FaHandshake/></span>
-                        <span>Join us</span>
+                        <span className={'icon'}><FaHandshake/></span>
+                        <span className={'text'}>Join us</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><MdContacts/></span>
-                        <span>Contact</span>
+                        <span className={'icon'}><MdContacts/></span>
+                        <span className={'text'}>Contact</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span><MdPermIdentity/></span>
-                        <span>Sign up</span>
+                        <span className={'icon'}><MdPermIdentity/></span>
+                        <span className={'text'}>Sign up</span>
                     </a>
                 </li>
             </ul>

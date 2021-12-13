@@ -1,5 +1,6 @@
 body{
     background-color: #121212;
+    margin: 0;
 }
 .bubble{
     background: linear-gradient(90deg, rgba(238,174,202,1), rgba(148,187,233,1) 51%, rgba(238,174,202,1)) var(--x, 0)/ 200%;
@@ -43,9 +44,43 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    width: 100%;
 }
 
 .navigation ul {
     display: flex;
 }
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    height: 8vh;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 8vh;
+    font-size: 2em;
+    text-align: center;
+    transition: 0.5s;
+    color: black;
+}
+
+.navigation ul li:hover a .icon {
+    transform: translateY(-35px);
+}
+
 
