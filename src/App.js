@@ -1,47 +1,24 @@
-import { useState } from 'react'
-import 'bulma/css/bulma.min.css';
-import Bubbles from "./components/Bubbles";
-import Header from "./components/Header";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [tags, setTags] = useState([
-    {
-      id: 1,
-      title: "Women's Rights",
-      selectionType: 0
-    },
-    {
-      id: 2,
-      title: 'Education',
-      selectionType: 0
-    },
-    {
-      id: 3,
-      title: 'Clean Water',
-      selectionType: 0
-    },
-    {
-      id: 4,
-      title: 'Human Rights',
-      selectionType: 0
-    }
-  ])
-
-  const toggleSelected = (id) => {
-      setTags(tags.map((tag) =>
-        tag.id === id ? {...tag, selectionType:
-        tag.selectionType === 2 ? 0 : ++tag.selectionType} : tag
-      ))
-  }
-
   return (
-      <div>
-        <Header/>
-      <section className="section bubble-container">
-        <Bubbles className="" tags={tags} toggleSelected={toggleSelected}/>
-      </section>
-      </div>
-
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
