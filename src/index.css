@@ -37,7 +37,13 @@ body{
     place-items: center;
 }
 
-.header-container {
+.header-cont{
+  background-color: #ffff;
+  border-radius: 1rem;
+  top: 3rem;
+}
+
+/* .header-container {
     display: flex;
     justify-content: right;
     background-color: #ffff;
@@ -45,7 +51,7 @@ body{
     width: 100%;
     top: 3rem;
     border-radius: 1rem;
-}
+} */
 
 .logo-container {
     position: absolute;
@@ -54,13 +60,13 @@ body{
 
 .navigation-container {
     background-color: #ffff;
-    position: relative;
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
-    width: 30%;
-    height: 90px;
+    /* width: 30%; */
+    /* height: 90px; */
 }
 
 .navigation-container ul {
@@ -98,7 +104,7 @@ body{
 }
 
 .navigation-container ul li.active a .icon {
-    transform: translateY(-42px);
+    transform: translateY(-250%);
 }
 
 .navigation-container ul li a .text {
@@ -112,14 +118,15 @@ body{
     transform: translateY(0px);
 }
 
+/* Shows text when list item is active */
 .navigation-container ul li.active a .text {
     opacity: 1;
-    transform: translateY(35px);
+    transform: translateY(100%);
 }
 
 .indicator {
     position: absolute;
-    top: -39%;
+    top: -30%;
     width: 70px;
     height: 70px;
     background: linear-gradient(90deg, rgba(238,174,202,1), rgba(148,187,233,1) 51%, rgba(238,174,202,1)) var(--x, 0)/ 200%;
@@ -171,5 +178,3 @@ body{
 .navigation-container ul li:nth-child(5).active ~ .indicator{
     transform: translateX(calc(70px * 4));
 }
-
-
