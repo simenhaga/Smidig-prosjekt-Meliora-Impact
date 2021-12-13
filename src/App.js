@@ -35,10 +35,12 @@ function App() {
   }
 
   return (
+      <div><Header/>
       <section className="section bubble-container">
-        <Header/>
         <Bubbles className="" tags={tags} toggleSelected={toggleSelected}/>
       </section>
+      </div>
+
   );
 }
 

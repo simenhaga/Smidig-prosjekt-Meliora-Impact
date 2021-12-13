@@ -7,46 +7,51 @@ import { MdPermIdentity } from "react-icons/md";
 import logo from '../resources/MelioraLogoEditBlack.png';
 
 const Header = () => {
+    const list = document.querySelectorAll('.list')
+    function activateLink() {
+        list.forEach((item) =>
+        item.classList.remove('active'))
+        this.classList.add('active')
+    }
+    list.forEach((item) =>
+    item.addEventListener('click', activateLink))
+
+
     return (
 
         <div className={'navigation'}>
             <ul>
-                <li className={'menu-list'}>
-                    <a href={'#'}>
-                        <span><img class="logo" src={logo} alt="Meliora Logo" /></span>
-                        
-                    </a>
-                </li>
-                <li className={'menu-list'}>
+                <li className={'list active'}>
                     <a href={'#'}>
                         <span className={'icon'}><MdHome/></span>
                         <span className={'text'}>Home</span>
                     </a>
                 </li>
-                <li className={'menu-list'}>
+                <li className={'list'}>
                     <a href={'#'}>
                         <span className={'icon'}><GoGlobe/></span>
                         <span className={'text'}>Our vision</span>
                     </a>
                 </li>
-                <li className={'menu-list'}>
+                <li className={'list'}>
                     <a href={'#'}>
                         <span className={'icon'}><FaHandshake/></span>
                         <span className={'text'}>Join us</span>
                     </a>
                 </li>
-                <li className={'menu-list'}>
+                <li className={'list'}>
                     <a href={'#'}>
                         <span className={'icon'}><MdContacts/></span>
                         <span className={'text'}>Contact</span>
                     </a>
                 </li>
-                <li className={'menu-list'}>
+                <li className={'list'}>
                     <a href={'#'}>
                         <span className={'icon'}><MdPermIdentity/></span>
                         <span className={'text'}>Sign up</span>
                     </a>
                 </li>
+                <div className={'indicator'}/>
             </ul>
         </div>
     );
