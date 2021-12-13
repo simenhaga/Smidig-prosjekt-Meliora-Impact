@@ -1,42 +1,44 @@
 import React from 'react';
+import { MdHome } from "react-icons/md";
+import { MdContacts } from "react-icons/md";
+import { GoGlobe } from "react-icons/go";
+import { FaHandshake } from "react-icons/fa";
+import { MdPermIdentity } from "react-icons/md";
 
 const Header = () => {
     return (
+
         <div className={'navigation'}>
             <ul>
                 <li className={'menu-list'}>
                     <a href={'#'}>
                         <span><img class="logo" src="./resources/MelioraLogo.png" alt="Meliora Logo" /></span>
-                    </a>
-                </li>
-                <li className={'menu-list'}>
-                    <a href={'#'}>
-                        <span></span>
+                        <span><MdHome/></span>
                         <span>Home</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span></span>
-                        <span>Our Vision</span>
+                        <span><GoGlobe/></span>
+                        <span>Our vision</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span></span>
+                        <span><FaHandshake/></span>
                         <span>Join us</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span></span>
+                        <span><MdContacts/></span>
                         <span>Contact</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span></span>
-                        <span>Sign Up</span>
+                        <span><MdPermIdentity/></span>
+                        <span>Sign up</span>
                     </a>
                 </li>
             </ul>
