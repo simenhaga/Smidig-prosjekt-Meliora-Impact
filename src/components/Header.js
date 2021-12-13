@@ -6,26 +6,37 @@ const Header = () => {
             <ul>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span>icon</span>
-                        <span>text</span>
+                        <span><img class="logo" src="./resources/MelioraLogo.png" alt="Meliora Logo" /></span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span>icon</span>
-                        <span>text</span>
+                        <span></span>
+                        <span>Home</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span>icon</span>
-                        <span>text</span>
+                        <span></span>
+                        <span>Our Vision</span>
                     </a>
                 </li>
                 <li className={'menu-list'}>
                     <a href={'#'}>
-                        <span>icon</span>
-                        <span>text</span>
+                        <span></span>
+                        <span>Join us</span>
+                    </a>
+                </li>
+                <li className={'menu-list'}>
+                    <a href={'#'}>
+                        <span></span>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li className={'menu-list'}>
+                    <a href={'#'}>
+                        <span></span>
+                        <span>Sign Up</span>
                     </a>
                 </li>
             </ul>
