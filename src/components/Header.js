@@ -18,8 +18,8 @@ const Header = () => {
 
 
     return (
-
-        <div className={'navigation'}>
+        <div className={'header-container'}>
+        <div className={'navigation-container'}>
             <ul>
                 <li className={'list active'}>
                     <a href={'#'}>
@@ -53,6 +53,7 @@ const Header = () => {
                 </li>
                 <div className={'indicator'}/>
             </ul>
+        </div>
         </div>
     );
 };
