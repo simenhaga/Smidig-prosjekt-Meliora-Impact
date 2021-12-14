@@ -10,6 +10,7 @@ import "./Footer.css"
 
 const Footer = () => {
     return (
+        //PLACEHOLDER FOR BACKGROUND
         <><section className="test has-background-black" style={{height:"100vh"}}>
             <div className="section"></div>
         </section>
@@ -54,24 +55,54 @@ const Footer = () => {
                         </div>
                         <div className='column'></div>
                     </div>
-                    {/* <hr className='line' style={{color:"red", width: "50%"}}></hr> */}
                     <div className='line' style={{ borderTop: "2px solid lightGrey ", width: "69%", marginLeft: "14.3%", marginBottom: "3%"}}></div>
                 </section>
-                <div className='columns'>
-                    <div className='column'>
-                        <div className='columns is-vcentered'>
-                            <div className='column has-text-right'>
-                                <img className='logo'
-                                    src={Logo}
-                                    alt={"Meliora Impact Logo"} 
-                                />
-                            </div>
-                            <div className='column has-text-left is-size-7'>
-                                <p className='text'>© 2021 by Meliora Impact. Org.nr 926 638 564</p>
+
+                {/* INFORMATION */}
+                <section className='middleSection'>
+                    <div className='columns'>
+                    <div className='column'></div>
+                        <div className='column'>
+                            <div className='columns is-vcentered'>
+                                <div className='column has-text-left'>
+                                    <img className='logo'
+                                        src={Logo}
+                                        alt={"Meliora Impact Logo"} 
+                                    />
+                                </div>
                             </div>
                         </div>
+                        <div className='column'></div>
+                        <div className='column'></div>
+                        <div className='column has-text-left'>
+                            <p className='has-text-weight-semibold'>SITE LINKS</p>
+                            <div className='siteList has-text-left' style={{listStyleType:"none"}}>
+                                <a href='#' >Home</a><br />
+                                <a href='#'>Vison</a><br />
+                                <a href='#'>Join Us</a><br />
+                                <a href='#'>Contact</a><br />
+                                <a href='#'>Sign Up</a>
+                            </div>
+                        </div>
+                        <div className='column'>
+                            <p className='has-text-weight-semibold'>SOCIALS</p>
+                            <div className='socialList has-text-left' style={{listStyleType:"none"}}>
+                                <a href='#' >Facebook</a><br />
+                                <a href='#'>Instagram</a><br />
+                                <a href='#'>LinkedIn</a><br />
+                            </div>
+                        </div>
+                        <div className='column'></div>
                     </div>
-                </div>
+                </section>
+
+                {/* COPYRIGHTS */}
+                <section className='copyrightSection'>
+                    <div className='column has-text-centered is-size-7' style={{marginTop: "2%"}}>
+                        <p className='text'>© 2021 by Meliora Impact. Org.nr 926 638 564</p>
+                    </div>
+                </section>
+
             </footer>
         </section></>
     );
