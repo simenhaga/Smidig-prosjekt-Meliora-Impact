@@ -55,7 +55,7 @@ const Footer = () => {
                         <div className='column'></div>
                     </div>
                     {/* <hr className='line' style={{color:"red", width: "50%"}}></hr> */}
-                    <div className='line' style={{ borderTop: "2px solid lightGrey ", width: "69%", marginLeft: "14.3%"}}></div>
+                    <div className='line' style={{ borderTop: "2px solid lightGrey ", width: "69%", marginLeft: "14.3%", marginBottom: "3%"}}></div>
                 </section>
                 <div className='columns'>
                     <div className='column'>
