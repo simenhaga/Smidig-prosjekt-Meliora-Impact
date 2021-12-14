@@ -1,0 +1,10 @@
+.partnersText {
+    display: grid;
+    color: gray;
+}
+
+.line {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
