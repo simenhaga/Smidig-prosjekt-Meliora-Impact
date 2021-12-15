@@ -15,10 +15,11 @@ const BubbleChart = () => {
 			.attr('style', `background-color: grey`)
 			.append('g')
 			.attr('transform', `translate(${height/2},${width/2})`)
-		const myData = d3.csv('../resources/Meliora-categories.csv')
-		myData.then(function(data){
-			ready(data)
-		})
+
+		d3.csv('./Meliora-categories.csv')
+			.then((data) => {
+				console.log(data)
+			}).catch((error) => {console.log('Failed to load data')})
 
 		const ready = (datapoints) => {
 			var circles = svg.selectAll(".category")
