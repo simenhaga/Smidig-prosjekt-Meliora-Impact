@@ -7,6 +7,8 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 	const d3Bubbles = useRef() //Reference to the svg element returned in this component
 	const d3Labels = useRef() //Reference to the div element returned in this component
 
+
+
 //Hook that runs once on page load and every subsequent state change
 	useEffect(() => {
 
@@ -34,25 +36,7 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 
 
 		//GRADIENT STUFF
-		const gradient = svg.append("svg:defs")
-			.append("svg:linearGradient")
-			.attr("id", "gradient")
-			.attr("x1", "0%")
-			.attr("y1", "0%")
-			.attr("x2", "100%")
-			.attr("y2", "100%")
-			.attr("spreadMethod", "pad");
-
-		// Define the gradient colors
-		gradient.append("svg:stop")
-			.attr("offset", "0%")
-			.attr("stop-color", "#EEAECAFF")
-			.attr("stop-opacity", 1);
-
-		gradient.append("svg:stop")
-			.attr("offset", "100%")
-			.attr("stop-color", "#94BBE9FF")
-			.attr("stop-opacity", 1);
+		configureGradient(svg);
 
 		/*
 		Function for setting the radius of the drawn circles to match selection type. scaleLinear()
@@ -132,7 +116,30 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 		})
 	}
 
-    return (
+	//Helper for configuring the gradient
+	const configureGradient = (svg) => {
+		const gradient = svg.append("svg:defs")
+			.append("svg:linearGradient")
+			.attr("id", "gradient")
+			.attr("x1", "0%")
+			.attr("y1", "0%")
+			.attr("x2", "100%")
+			.attr("y2", "100%")
+			.attr("spreadMethod", "pad");
+
+		// Define the gradient colors
+		gradient.append("svg:stop")
+			.attr("offset", "0%")
+			.attr("stop-color", "#EEAECAFF")
+			.attr("stop-opacity", 1);
+
+		gradient.append("svg:stop")
+			.attr("offset", "100%")
+			.attr("stop-color", "#94BBE9FF")
+			.attr("stop-opacity", 1);
+	}
+
+	return (
         <div id='bubble-container'>
 			<svg ref={d3Bubbles}/>
 			<div ref={d3Labels}/>
