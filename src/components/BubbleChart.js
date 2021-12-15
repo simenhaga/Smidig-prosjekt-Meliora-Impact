@@ -7,8 +7,6 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 	const d3Bubbles = useRef() //Reference to the svg element returned in this component
 	const d3Labels = useRef() //Reference to the div element returned in this component
 
-
-
 //Hook that runs once on page load and every subsequent state change
 	useEffect(() => {
 
@@ -17,7 +15,7 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 		const height = parseInt(d3.select('#bubble-container').style('height')) - margin.top - margin.bottom
 
 		const circlesPadding = 4 //The amount of minimum spacing between the circles
-		const circlesScaleFactor = 5 //Used for setting the scale of the circles
+		const circlesScaleFactor = 6 //Used for setting the scale of the circles
 		const forceStrength = 0.05
 
 		const svg = d3.select(d3Bubbles.current)
@@ -25,15 +23,6 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 			.attr('width', width)
 			.append('g')
 			.attr('transform', `translate(${height/2},${width/2})`) //Sets the position of the g-tag
-
-		const html = d3.select(d3Labels.current)
-			.attr('class', 'bubble-text')
-			.style('position', 'absolute')
-			.style('left', 0)           // center horizontally
-			.style('right', 0)
-			.style('margin-left', 'auto')
-			.style('margin-right', 'auto');
-
 
 		//GRADIENT STUFF
 		configureGradient(svg);
@@ -53,39 +42,27 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 			.force('collide', d3.forceCollide( (d) => radiusScale(d.selection) + circlesPadding ))
 
 		//Loading the data, and rendering the bubbles afterwards
-
 		const ready = (data) => {
 			//This is the function that actually draws each circle
-			const circles = svg.selectAll(".bubble")
+			const g = svg.selectAll(null)
 				.data(data)
-				.enter().append('circle')
+				.enter()
+				.append('g')
+
+			g.append("circle")
 				.attr('class', 'bubble')
 				.on('click', functionForChangingSize )
 				.attr('fill', 'url(#gradient)')
 				.attr('r', (d) => { return radiusScale(d.selection) } )
 
-			const labels = html.selectAll('.bubble-label')
-				.data(data)
-				.enter().append('div')
-				.attr('class', d => {
-					/*var size;
-					if (2*d.r < this.smallDiameter) size = 'small';
-					else if (2*d.r < this.mediumDiameter) size = 'medium';
-					else size = 'large';*/
-					return 'bubble-label ' /*+ size*/
-				})
-				.text(d => d.title)
-				.style('position', 'absolute')
-				.style('height', d => 2 * d.r + 'px')
-				.style('width', d => 2 * d.r + 'px')
-				.style('left', d =>  d.x - d.r + 'px')
-				.style('top', d =>  d.y - d.r + 'px')
+			g.append("text")
+				.text((d) => d.title)
+				.style('text-anchor', 'middle')
 
 			//This is the function that moves the bubbles for us
 			const ticked = () => {
-				circles
-					.attr('cx', (d) => {return d.x})
-					.attr('cy', (d) => {return d.y})
+				//g.attr('cx', (d) => {return d.x}).attr('cy', (d) => {return d.y})
+				g.attr('transform', (d) => { return `translate(${d.x},${d.y})`})
 			}
 
 			simulation.nodes(data).on('tick', ticked)
