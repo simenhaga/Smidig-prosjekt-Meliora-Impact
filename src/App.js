@@ -3,9 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sandbox from "./components/Sandbox" //This element HAS to be created locally on your machine to avoid merge conflicts
-import Bubbles from "./components/Bubbles"
 
-import OldBubblePage from './components/BubblePage';
+import OldBubblePage from './pages/BubblePage';
 
 
 const App = () => {

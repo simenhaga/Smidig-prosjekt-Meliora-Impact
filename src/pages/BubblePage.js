@@ -1,9 +1,9 @@
 import React from 'react'
-import BubbleChart from "./BubbleChart";
+import BubbleChart from "../components/BubbleChart";
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Footer from "../Footer/Footer"
-import Header from "./Header"
+import Header from "../components/Header"
 
 
 const OldBubblePage = () => {
