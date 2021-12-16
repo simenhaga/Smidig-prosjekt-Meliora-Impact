@@ -6,39 +6,39 @@
       "selectionType": "0"
     },
     {
-		  "id": 2,
-		  "title": "Education",
-		  "selectionType": 0
-		},
-		{
-		  "id": 3,
-		  "title": "Mathias er våken",
-		  "selectionType": 0
-		},
-		{
-		  "id": 4,
-		  "title": "Clean Water",
-		  "selectionType": 0
-		},
-		{
-		  "id": 5,
-		  "title": "Clean Water",
-		  "selectionType": 0
-		},
-		{
-		  "id": 6,
-		  "title": "Clean Water",
-		  "selectionType": 0
-		},
-		{
-		  "id": 7,
-		  "title": "Clean Water",
-		  "selectionType": 0
-		},
-		{
-		  "id": 8,
-		  "title": "Human Rights",
-		  "selectionType": 0
-		}
+	  "id": 2,
+	  "title": "Education",
+	  "selectionType": 0
+	},
+	{
+	  "id": 3,
+	  "title": "Environment",
+	  "selectionType": 0
+	},
+	{
+	  "id": 4,
+	  "title": "Clean Water",
+	  "selectionType": 0
+	},
+	{
+	  "id": 5,
+	  "title": "Medicine",
+	  "selectionType": 0
+	},
+	{
+	  "id": 6,
+	  "title": "Sanitation",
+	  "selectionType": 0
+	},
+	{
+	  "id": 7,
+	  "title": "Emergency response",
+	  "selectionType": 0
+	},
+	{
+	  "id": 8,
+	  "title": "Animal health",
+	  "selectionType": 0
+	}
   ]
 }
