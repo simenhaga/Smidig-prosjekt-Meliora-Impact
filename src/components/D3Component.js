@@ -14,7 +14,6 @@ class D3Component {
         //const { tagsData } = props
         this.svg = d3.select(containerEl)
             .append('svg')
-            .style('background-color', 'white')
             .attr('width', width)
             .attr('height', height)
             .append('g')
