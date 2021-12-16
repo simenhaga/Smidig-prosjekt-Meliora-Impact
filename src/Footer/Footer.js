@@ -9,7 +9,7 @@ import "./Footer.css"
 
 const Footer = () => {
     return (
-        <footer className="footer" style={{ width: "100vw", padding:"0%" }}>
+        <footer className="footer" style={{ width: "100%", padding:"0%" }}>
                 <div className='columns is-centered'>
                     <div className='column is-9'>
                         <div className='columns is-vcentered'>

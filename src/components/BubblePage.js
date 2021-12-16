@@ -2,6 +2,8 @@ import React from 'react'
 import BubbleChart from "./BubbleChart";
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Footer from "../Footer/Footer"
+import Header from "./Header"
 
 
 
@@ -45,25 +47,31 @@ const OldBubblePage = () => {
 
     
 	return (
-		<section className="section bubble-container">
-			<Routes>
-                <Route
-                    path='/'
-                    element={
-                        <div>
-                            {tags.length > 0 ? (
-                                <BubbleChart
-                                    tagsData = {tags}
-                                    setSelected={toggleSelected}
-                                />
-                            ) : (
-                                'No categories to show'
-                            )}
-                        </div>
-                    }
-                />
-			</Routes>
-	  	</section>
+		<div style={{width: "100%"}}>
+			<div className='section'>
+				<Header/>
+			</div>
+			<section className="section bubble-container" style={{height: "100vh"}}>
+				<Routes>
+					<Route
+						path='/'
+						element={
+							<div>
+								{tags.length > 0 ? (
+									<BubbleChart
+										tagsData = {tags}
+										setSelected={toggleSelected}
+									/>
+								) : (
+									'No categories to show'
+								)}
+							</div>
+						}
+					/>
+				</Routes>
+			</section>
+			<Footer/>
+		</div>
 	);
 }
 
