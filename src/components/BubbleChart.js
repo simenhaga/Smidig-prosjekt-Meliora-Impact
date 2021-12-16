@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
 import * as d3 from 'd3'
-import file from './Meliora-categories.csv'
 import './BubbleChart.css'
 
 const BubbleChart = ({ tagsData, setSelected }) => {
@@ -49,7 +48,6 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 			.force("r", d3.forceRadial((d) => { return 300 }))
 			.force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + circlesPadding ))
 
-
 		//Loading the data, and rendering the bubbles afterwards
 		const ready = () => {
 			//This is the function that actually draws each circle
@@ -81,11 +79,7 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 			}
 		}
 
-		//If data isn't passed to the component, load it yourself...
-
 		ready(tagsData)
-
-		return () => {console.log('Cleanup')} //Remove old bubbles here
 	},[])
 
 	//Helper for configuring the gradient
