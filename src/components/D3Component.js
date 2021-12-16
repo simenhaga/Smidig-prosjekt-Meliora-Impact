@@ -49,20 +49,23 @@ class D3Component {
             .attr("stop-opacity", 1);
     }
 
-    initialiseBubbles = () => {
-        const minRadius = 10 * this.circlesScaleFactor
-        const radiusScale = d3.scaleLinear().domain([0,2]).range([minRadius, minRadius*3])
-
-        //Function that applies the forces to the elements
-        this.centerSimulation = d3.forceSimulation()
-            .force('x', d3.forceX().strength(this.forceStrength))
-            .force('y', d3.forceY().strength(this.forceStrength))
-            .force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + this.circlesPadding ))
+    radiusScale = (val) => {
         /*
 		Function for setting the radius of the drawn circles to match selection type. scaleLinear()
 		means that a bubble clicked once is exactly 2x the size of the smallest bubble. scaleSqrt()
 		would make it >2x the size
 		*/
+        const minRadius = 10 * this.circlesScaleFactor
+        const scale = d3.scaleLinear().domain([0,2]).range([minRadius, minRadius*3])
+        return scale(val)
+    }
+
+    initialiseBubbles = () => {
+        //Function that applies the forces to the elements
+        this.centerSimulation = d3.forceSimulation()
+            .force('x', d3.forceX().strength(this.forceStrength))
+            .force('y', d3.forceY().strength(this.forceStrength))
+            .force('collide', d3.forceCollide( (d) => this.radiusScale(d.selectionType) + this.circlesPadding ))
 
         const { svg, props: { tagsData, width, height, setSelected } } = this;
 
@@ -75,7 +78,7 @@ class D3Component {
             .attr('class', 'bubble')
             .on('click', (d) => {setSelected(d)} )
             .attr('fill', 'url(#gradient)')
-            .attr('r', (d) => { return radiusScale(d.selectionType) } )
+            .attr('r', (d) => { return this.radiusScale(d.selectionType) } )
 
         g.append("text")
             .text((d) => d.title)
@@ -89,11 +92,13 @@ class D3Component {
         this.centerSimulation.nodes(tagsData).on('tick', ticked)
     }
 
+    runSimulation = () => {
+
+    }
+
     updateBubbleSize = () => {
         const {svg} = this
-        const minRadius = 10 * this.circlesScaleFactor
-        const radiusScale = d3.scaleLinear().domain([0,2]).range([minRadius, minRadius*3])
-        const circles = svg.selectAll('circle').attr('r', (d) => { return radiusScale(d.selectionType) } )
+        const circles = svg.selectAll('circle').attr('r', (d) => { return this.radiusScale(d.selectionType) } )
     }
 
     resize = (width, height) => {
