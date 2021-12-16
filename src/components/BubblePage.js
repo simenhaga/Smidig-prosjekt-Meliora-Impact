@@ -6,21 +6,28 @@ import Footer from "../Footer/Footer"
 import Header from "./Header"
 
 
-
-
 const OldBubblePage = () => {
+	const alterSelection = (tag) => {
+		console.log('sType before:' + tag.selectionType)
+		if(tag.selectionType === 2){
+			tag.selectionType = 0;
+		} else {
+			++tag.selectionType
+		}
+		console.log('sType after:' + tag.selectionType)
+	}
     const toggleSelected = (id) => {
 		const actualId = id.target.__data__.id
 		setTags(tags.map((tag) =>
 			tag.id === actualId ? {...tag, selectionType:
-			tag.selectionType === 2 ? 0 : ++tag.selectionType} : tag
+		alterSelection(tag)} : tag
 		))
-		console.log(actualId)
+		console.log(id.target.__data__)
 		console.log("Should change selection of id: " + id.target.__data__.id)
     }
-    
-    const [tags, setTags] = useState([])
-	
+	const [tags, setTags] = useState([])
+
+
 	useEffect (() => {
 		const getCategories = async ()=> {
 			const categoriesFromServer = await fetchCategories()
