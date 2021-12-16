@@ -1,13 +1,52 @@
 import React, {useEffect, useRef, useState} from 'react'
 import * as d3 from 'd3'
 import './BubbleChart.css'
+import D3Component from "./D3Component";
+
+let vis
 
 const BubbleChart = ({ tagsData, setSelected }) => {
 	const d3Bubbles = useRef() //Reference to the svg element returned in this component
 
-	const [bubbles, setBubbles] = useState()
-
+	const [height, setHeight] = useState(600)
+	const [width, setWidth] = useState(600)
 	let tutorial = false;
+
+	const updateVisOnResize = () => {
+		vis && vis.resize(width, height)
+	}
+
+	const handleResizeEvent = () => {
+		let resizeTimer
+		const handleResize = ()	 => {
+			clearTimeout(resizeTimer)
+			resizeTimer = setTimeout(() => {
+				setWidth(window.innerWidth)
+				setHeight(window.innerHeight)
+			}, 300)
+		}
+		window.addEventListener('resize', handleResize)
+
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}
+
+	const initVis = () => {
+		if(tagsData && tagsData.length){
+			const d3Props = {
+				tagsData,
+				width,
+				height,
+				setSelected
+			}
+			vis = new D3Component(d3Bubbles.current, d3Props)
+		}
+	}
+
+	useEffect(handleResizeEvent, [])
+	useEffect(updateVisOnResize, [width, height])
+	useEffect(initVis, [ tagsData ])
 
 	//Hook that runs once on page load and every subsequent state change
 	useEffect(() => {
@@ -81,6 +120,7 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 
 		ready(tagsData)
 	},[])
+
 
 	//Helper for configuring the gradient
 	const configureGradient = (svg) => {
