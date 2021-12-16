@@ -7,6 +7,8 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 	const d3Bubbles = useRef() //Reference to the svg element returned in this component
 	const d3Labels = useRef() //Reference to the div element returned in this component
 
+	let tutorial = false;
+
 //Hook that runs once on page load and every subsequent state change
 	useEffect(() => {
 
@@ -36,10 +38,16 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 		const radiusScale = d3.scaleLinear().domain([0,2]).range([minRadius, minRadius*3])
 
 		//Function that applies the forces to the elements
-		const simulation = d3.forceSimulation()
+		const centerSimulation = d3.forceSimulation()
 			.force('x', d3.forceX().strength(forceStrength))
 			.force('y', d3.forceY().strength(forceStrength))
 			.force('collide', d3.forceCollide( (d) => radiusScale(d.selection) + circlesPadding ))
+
+		const radialSimulation = d3.forceSimulation()
+			.force("charge", d3.forceCollide().radius(5))
+			.force("r", d3.forceRadial((d) => { return 300 }))
+			.force('collide', d3.forceCollide( (d) => radiusScale(d.selection) + circlesPadding ))
+
 
 		//Loading the data, and rendering the bubbles afterwards
 		const ready = (data) => {
@@ -65,7 +73,11 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 				g.attr('transform', (d) => { return `translate(${d.x},${d.y})`})
 			}
 
-			simulation.nodes(data).on('tick', ticked)
+			if(tutorial){
+				radialSimulation.nodes(data).on('tick', ticked)
+			} else {
+				centerSimulation.nodes(data).on('tick', ticked)
+			}
 		}
 
 		//If data isn't passed to the component, load it yourself...
