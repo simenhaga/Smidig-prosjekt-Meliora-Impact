@@ -41,10 +41,14 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 			vis = new D3Component(d3Bubbles.current, d3Props)
 		}
 	}
+	const updateBubbles = () => {
+		vis.updateBubbleSize()
+	}
 
 	useEffect(handleResizeEvent, [])
 	useEffect(updateVisOnResize, [width, height])
-	useEffect(initVis, [ tagsData ])
+	useEffect(initVis, [])
+	useEffect(updateBubbles, [tagsData])
 
 	return (
         <div id='bubble-container'>

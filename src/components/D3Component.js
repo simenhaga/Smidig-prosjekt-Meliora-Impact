@@ -18,12 +18,12 @@ class D3Component {
             .append('g')
             .attr('transform', `translate(${height/2},${width/2})`) //Sets the position of the g-tag
 
-        this.circlesPadding = 4 //The amount of minimum spacing between the circles
+        this.circlesPadding = 8 //The amount of minimum spacing between the circles
         this.circlesScaleFactor = 6 //Used for setting the scale of the circles
         this.forceStrength = 0.05
 
         this.configureGradient(this.svg)
-        this.updateData()
+        this.initialiseBubbles()
     }
 
     //Helper for configuring the gradient
@@ -49,7 +49,7 @@ class D3Component {
             .attr("stop-opacity", 1);
     }
 
-    updateData = () => {
+    initialiseBubbles = () => {
         const minRadius = 10 * this.circlesScaleFactor
         const radiusScale = d3.scaleLinear().domain([0,2]).range([minRadius, minRadius*3])
 
@@ -57,11 +57,6 @@ class D3Component {
         this.centerSimulation = d3.forceSimulation()
             .force('x', d3.forceX().strength(this.forceStrength))
             .force('y', d3.forceY().strength(this.forceStrength))
-            .force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + this.circlesPadding ))
-
-        this.radialSimulation = d3.forceSimulation()
-            .force("charge", d3.forceCollide().radius(5))
-            .force("r", d3.forceRadial((d) => { return 300 }))
             .force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + this.circlesPadding ))
         /*
 		Function for setting the radius of the drawn circles to match selection type. scaleLinear()
@@ -71,7 +66,6 @@ class D3Component {
 
         const { svg, props: { tagsData, width, height, setSelected } } = this;
 
-        this.configureGradient(svg)
         const g = svg.selectAll(null)
             .data(tagsData)
             .enter()
@@ -92,17 +86,14 @@ class D3Component {
             //g.attr('cx', (d) => {return d.x}).attr('cy', (d) => {return d.y})
             g.attr('transform', (d) => { return `translate(${d.x},${d.y})`})
         }
-
-        if(false){
-            this.radialSimulation.nodes(tagsData).on('tick', ticked)
-        } else {
-            this.centerSimulation.nodes(tagsData).on('tick', ticked)
-        }
+        this.centerSimulation.nodes(tagsData).on('tick', ticked)
     }
 
-    setActiveDatapoint = (d, node) => {
-        d3.select(node).style('fill', 'yellow');
-        this.props.onDatapointClick(d);
+    updateBubbleSize = () => {
+        const {svg} = this
+        const minRadius = 10 * this.circlesScaleFactor
+        const radiusScale = d3.scaleLinear().domain([0,2]).range([minRadius, minRadius*3])
+        const circles = svg.selectAll('circle').attr('r', (d) => { return radiusScale(d.selectionType) } )
     }
 
     resize = (width, height) => {
@@ -113,6 +104,11 @@ class D3Component {
             .attr('cx', () => Math.random() * width)
             .attr('cy', () => Math.random() * height);
     }
+
+    /*this.radialSimulation = d3.forceSimulation()
+        .force("charge", d3.forceCollide().radius(5))
+        .force("r", d3.forceRadial((d) => { return 300 }))
+        .force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + this.circlesPadding ))*/
 }
 
 export default D3Component;
