@@ -5,7 +5,6 @@ import './BubbleChart.css'
 
 const BubbleChart = ({ tagsData, setSelected }) => {
 	const d3Bubbles = useRef() //Reference to the svg element returned in this component
-	const d3Labels = useRef() //Reference to the div element returned in this component
 
 	const [bubbles, setBubbles] = useState()
 
@@ -128,7 +127,6 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 	return (
         <div id='bubble-container'>
 			<svg ref={d3Bubbles}/>
-			<div ref={d3Labels}/>
     	</div>
     )
 }
