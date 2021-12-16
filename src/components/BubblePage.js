@@ -10,7 +10,7 @@ const OldBubblePage = () => {
 			tag.id === actualId ? {...tag, selectionType:
 			tag.selectionType === 2 ? 0 : ++tag.selectionType} : tag
 		))
-
+		console.log(actualId)
 		console.log("Should change selection of id: " + id.target.__data__.id)
     }
     
@@ -32,15 +32,36 @@ const OldBubblePage = () => {
 		},
 		{
 		  id: 4,
+		  title: 'Clean Water',
+		  selectionType: 0
+		},
+		{
+		  id: 5,
+		  title: 'Clean Water',
+		  selectionType: 0
+		},
+		{
+		  id: 6,
+		  title: 'Clean Water',
+		  selectionType: 0
+		},
+		{
+		  id: 7,
+		  title: 'Clean Water',
+		  selectionType: 0
+		},
+		{
+		  id: 8,
 		  title: 'Human Rights',
 		  selectionType: 0
 		}
+
 	])
 	
     
 	return (
 		<section className="section bubble-container">
-			<BubbleChart setSelected={toggleSelected}/>
+			<BubbleChart setSelected={toggleSelected} tagsData={tags}/>
 	  	</section>
 	);
 }

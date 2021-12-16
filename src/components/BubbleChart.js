@@ -41,12 +41,12 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 		const centerSimulation = d3.forceSimulation()
 			.force('x', d3.forceX().strength(forceStrength))
 			.force('y', d3.forceY().strength(forceStrength))
-			.force('collide', d3.forceCollide( (d) => radiusScale(d.selection) + circlesPadding ))
+			.force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + circlesPadding ))
 
 		const radialSimulation = d3.forceSimulation()
 			.force("charge", d3.forceCollide().radius(5))
 			.force("r", d3.forceRadial((d) => { return 300 }))
-			.force('collide', d3.forceCollide( (d) => radiusScale(d.selection) + circlesPadding ))
+			.force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + circlesPadding ))
 
 
 		//Loading the data, and rendering the bubbles afterwards
@@ -61,7 +61,7 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 				.attr('class', 'bubble')
 				.on('click', (d) => {setSelected(d)} )
 				.attr('fill', 'url(#gradient)')
-				.attr('r', (d) => { return radiusScale(d.selection) } )
+				.attr('r', (d) => { return radiusScale(d.selectionType) } )
 
 			g.append("text")
 				.text((d) => d.title)
