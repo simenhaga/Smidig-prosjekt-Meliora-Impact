@@ -10,6 +10,8 @@ class D3Component {
         this.containerEl = containerEl;
         this.props = props;
         const { width, height } = props;
+        this.tagsData = props.tagsData
+        //const { tagsData } = props
         this.svg = d3.select(containerEl)
             .append('svg')
             .style('background-color', 'white')
@@ -61,16 +63,11 @@ class D3Component {
     }
 
     initialiseBubbles = () => {
-        //Function that applies the forces to the elements
-        this.centerSimulation = d3.forceSimulation()
-            .force('x', d3.forceX().strength(this.forceStrength))
-            .force('y', d3.forceY().strength(this.forceStrength))
-            .force('collide', d3.forceCollide( (d) => this.radiusScale(d.selectionType) + this.circlesPadding ))
 
-        const { svg, props: { tagsData, width, height, setSelected } } = this;
+        const { svg, props: { width, height, setSelected } } = this;
 
         const g = svg.selectAll(null)
-            .data(tagsData)
+            .data(this.tagsData)
             .enter()
             .append('g')
 
@@ -84,21 +81,29 @@ class D3Component {
             .text((d) => d.title)
             .style('text-anchor', 'middle')
 
+        this.runSimulation(this.tagsData)
+    }
+
+    runSimulation = () => {
+        const g = this.svg.selectAll('g')
+        //Function that applies the forces to the elements
+        this.centerSimulation = d3.forceSimulation()
+            .force('x', d3.forceX().strength(this.forceStrength))
+            .force('y', d3.forceY().strength(this.forceStrength))
+            .force('collide', d3.forceCollide( (d) => this.radiusScale(d.selectionType) + this.circlesPadding ))
+
         //This is the function that moves the bubbles for us
         const ticked = () => {
             //g.attr('cx', (d) => {return d.x}).attr('cy', (d) => {return d.y})
             g.attr('transform', (d) => { return `translate(${d.x},${d.y})`})
         }
-        this.centerSimulation.nodes(tagsData).on('tick', ticked)
-    }
-
-    runSimulation = () => {
-
+        this.centerSimulation.nodes(this.tagsData).on('tick', ticked)
     }
 
     updateBubbleSize = () => {
         const {svg} = this
         const circles = svg.selectAll('circle').attr('r', (d) => { return this.radiusScale(d.selectionType) } )
+        this.runSimulation()
     }
 
     resize = (width, height) => {
