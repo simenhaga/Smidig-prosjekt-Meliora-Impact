@@ -7,8 +7,8 @@ let vis
 const BubbleChart = ({ tagsData, setSelected }) => {
 	const d3Bubbles = useRef() //Reference to the svg element returned in this component
 
-	const [height, setHeight] = useState(600)
-	const [width, setWidth] = useState(600)
+	const [height, setHeight] = useState(900)
+	const [width, setWidth] = useState(900)
 
 	const updateVisOnResize = () => {
 		vis && vis.resize(width, height)
