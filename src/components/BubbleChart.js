@@ -82,24 +82,11 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 		}
 
 		//If data isn't passed to the component, load it yourself...
-		if(!tagsData){
-			loadData(ready, file);
-		} else {
-			ready(tagsData)
-		}
+
+		ready(tagsData)
 
 		return () => {console.log('Cleanup')} //Remove old bubbles here
 	},[])
-
-	//Helper function for loading data from a file and triggering a callback afterwards
-	const loadData = (callback, file) => {
-		d3.csv(file).then((data) => {
-			callback(data)
-			//console.log(data)
-		}).catch((error) => {
-			console.log('Failed to load data')
-		})
-	}
 
 	//Helper for configuring the gradient
 	const configureGradient = (svg) => {
