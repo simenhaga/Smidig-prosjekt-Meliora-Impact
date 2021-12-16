@@ -1,14 +1,17 @@
 import React from 'react'
-import Bubbles from './Bubbles'
+import BubbleChart from "./BubbleChart";
 import { useState } from 'react'
 
 
 const OldBubblePage = () => {
     const toggleSelected = (id) => {
+		const actualId = id.target.__data__.id
 		setTags(tags.map((tag) =>
-			tag.id === id ? {...tag, selectionType:
+			tag.id === actualId ? {...tag, selectionType:
 			tag.selectionType === 2 ? 0 : ++tag.selectionType} : tag
 		))
+
+		console.log("Should change selection of id: " + id.target.__data__.id)
     }
     
     const [tags, setTags] = useState([
@@ -37,8 +40,8 @@ const OldBubblePage = () => {
     
 	return (
 		<section className="section bubble-container">
-		<Bubbles className="" tags={tags} toggleSelected={toggleSelected}/>
-	  </section>
+			<BubbleChart setSelected={toggleSelected}/>
+	  	</section>
 	);
 }
 

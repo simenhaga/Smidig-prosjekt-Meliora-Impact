@@ -59,7 +59,7 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 
 			g.append("circle")
 				.attr('class', 'bubble')
-				.on('click', functionForChangingSize )
+				.on('click', (d) => {setSelected(d)} )
 				.attr('fill', 'url(#gradient)')
 				.attr('r', (d) => { return radiusScale(d.selection) } )
 
@@ -86,14 +86,10 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 		} else {
 			ready(tagsData)
 		}
-	})
 
-	//This function should be replaced later to something that actually changes the data
-	const functionForChangingSize = (element) => {
-		console.log(element.target)
-		console.log(element.target.__data__)
-		console.log('In the future, this method will change selection type of data...')
-	}
+
+		return () => {console.log('Cleanup')} //Remove old bubbles here
+	})
 
 	//Helper function for loading data from a file and triggering a callback afterwards
 	const loadData = (callback, file) => {
