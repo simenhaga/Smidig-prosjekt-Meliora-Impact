@@ -50,10 +50,8 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 
 	//Hook that runs once on page load and every subsequent state change
 	useEffect(() => {
-
-		const margin = {top: 50, right: 30, bottom: 30, left: 30 }
-		const width = parseInt(d3.select('#bubble-container').style('width')) - margin.left - margin.right
-		const height = parseInt(d3.select('#bubble-container').style('height')) - margin.top - margin.bottom
+		const width = parseInt(d3.select('#bubble-container').style('width'))
+		const height = parseInt(d3.select('#bubble-container').style('height'))
 
 		const circlesPadding = 4 //The amount of minimum spacing between the circles
 		const circlesScaleFactor = 6 //Used for setting the scale of the circles
@@ -120,7 +118,6 @@ const BubbleChart = ({ tagsData, setSelected }) => {
 
 		ready(tagsData)
 	},[])
-
 
 	//Helper for configuring the gradient
 	const configureGradient = (svg) => {
