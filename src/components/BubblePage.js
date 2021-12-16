@@ -51,7 +51,7 @@ const OldBubblePage = () => {
 			<div className='section'>
 				<Header/>
 			</div>
-			<section className="section bubble-container" style={{height: "100vh"}}>
+			<section className="section bubble-container" style={{height: "100%"}}>
 				<Routes>
 					<Route
 						path='/'
