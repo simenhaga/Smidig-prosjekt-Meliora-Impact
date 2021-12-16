@@ -75,13 +75,12 @@ class D3Component {
             .attr('class', 'bubble')
             .on('click', (d) => {setSelected(d)} )
             .attr('fill', 'url(#gradient)')
-            .attr('r', (d) => { return this.radiusScale(d.selectionType) } )
 
         g.append("text")
             .text((d) => d.title)
             .style('text-anchor', 'middle')
 
-        this.runSimulation(this.tagsData)
+        this.updateBubbleSize()
     }
 
     runSimulation = () => {
@@ -90,7 +89,10 @@ class D3Component {
         this.centerSimulation = d3.forceSimulation()
             .force('x', d3.forceX().strength(this.forceStrength))
             .force('y', d3.forceY().strength(this.forceStrength))
-            .force('collide', d3.forceCollide( (d) => this.radiusScale(d.selectionType) + this.circlesPadding ))
+            .force('collide', d3.forceCollide( (d) => {
+                console.log('New radius: ' + this.radiusScale(d.selectionType))
+                return this.radiusScale(d.selectionType) + this.circlesPadding
+            } ))
 
         //This is the function that moves the bubbles for us
         const ticked = () => {
@@ -102,7 +104,7 @@ class D3Component {
 
     updateBubbleSize = () => {
         const {svg} = this
-        const circles = svg.selectAll('circle').attr('r', (d) => { return this.radiusScale(d.selectionType) } )
+        const circles = svg.selectAll('circle').attr('r', (d) => this.radiusScale(d.selectionType) )
         this.runSimulation()
     }
 
