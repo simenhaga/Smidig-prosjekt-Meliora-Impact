@@ -1,0 +1,522 @@
+commit 5c7a16c6141425a316aa41a55043ec5e3e43482f
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 15:04:32 2021 +0100
+
+    Resized bubbles container
+
+commit ce5565ff2dc7d669abdd8f883b9d876bcb7b2e25
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:55:47 2021 +0100
+
+    Populated temp data, resized bubbles
+
+commit 0268c1b66461d74d1010269d16f4006c7a978251
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:52:32 2021 +0100
+
+    Cleaned up App.js
+
+commit 65808c2a785e604e93aa31f4a30c60cc680b8e4a
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:50:49 2021 +0100
+
+    Extracted page files to separate folder
+
+commit 892eb3a21edf18b7e8d7bc3daa155869cb50cd54
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:48:22 2021 +0100
+
+    Removed old data file
+
+commit f8dcd0b4d780951565f004612673dba9a0399c12
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:48:01 2021 +0100
+
+    Removed test files
+
+commit 562ba271c077cd207520770781fd69a8be9d3ac4
+Merge: ef18935 d3d9740
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:39:46 2021 +0100
+
+    Merge feature/bubble-container into develop
+
+commit d3d97406216ec2dc8246be40cd4318af359e14ee
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:20:56 2021 +0100
+
+    Removed background color
+
+commit 8dfde89c4f4625f3f052d5ba8c86755ba9c19819
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 14:15:34 2021 +0100
+
+    Bubble collision almost finished, bug in collision when size reset
+
+commit 3eca6183e65095559ecd00a66168a51c671c0c1d
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 13:36:35 2021 +0100
+
+    Bubbles collide on resize
+
+commit c67d23953134fc1f7739732dc61680a52fbf162e
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 13:29:17 2021 +0100
+
+    Extracted bubble size method
+
+commit da2cd702cfd5aa45af89b0fbbb3ab45c670a5222
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 13:23:09 2021 +0100
+
+    Updating bubbles changes size, collision not working
+
+commit 9c89c767436b3f1798ddb06e556c2ece2613618b
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 13:01:40 2021 +0100
+
+    Extracted d3 functionality to separate component
+
+commit ef18935c6108641b573e01e4151ec2fece64d911
+Author: simenhaga <simen.haga@lyse.net>
+Date:   Thu Dec 16 12:32:12 2021 +0100
+
+    fixup
+
+commit 9a3a139868c983de921ec2feeb169246ccc3c777
+Author: simenhaga <simen.haga@lyse.net>
+Date:   Thu Dec 16 12:25:14 2021 +0100
+
+    Added Header and Footer
+
+commit ca7ae1d251778d73a85ce75d677c282d95f23636
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 12:07:26 2021 +0100
+
+    Removed margin
+
+commit e4eee08e3a5f871a1656dc794fc1e3b7d516311a
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 12:05:22 2021 +0100
+
+    Started extraction of d3 component
+
+commit 7820bd12d5ed5cf8827efb3670a4c327f251e40d
+Author: Simen Haga <simen.haga@lyse.net>
+Date:   Thu Dec 16 12:05:00 2021 +0100
+
+    Feature/footer component (#4)
+    
+    * Footer is now in place, without correct design
+    
+    * Footer is now styled
+    
+    * removed style.css import and cleaned up images.
+    
+    * Added trusted partners to Footer
+    
+    * Added marginBottom in footer
+    
+    * Added links to footer
+    
+    * Removed empty columns
+    
+    Co-authored-by: MathiasLandro <71821491+mathiaslandro@users.noreply.github.com>
+    Co-authored-by: Herman Svendsen Loen <71780070+HermanLoen@users.noreply.github.com>
+
+commit 5edcf8771513973f2c52c5822bae79fc2e5149e0
+Author: Simen Haga <simen.haga@lyse.net>
+Date:   Thu Dec 16 12:03:25 2021 +0100
+
+    Feature/json server (#8)
+    
+    * Imported d3, wrote an example
+    
+    * Added .idea/ to gitignore (webstorm)
+    
+    * Added .csv file for test data, got d3.csv() working
+    
+    * Moved csv-file
+    
+    * read from svg file
+    
+    * Implemented bubbles and collision
+    
+    * Code extractions
+    
+    * Extracted gradient method
+    
+    * Got text displaying (word wrap not functioning)
+    
+    * Added radial simulation example
+    
+    * Added BubbleChart to BubblePage, moved click function out of BubbleChart
+    
+    * Extracted data out of BubbleChart
+    
+    * Added json-server and bubble page reads from db.json
+    
+    Co-authored-by: Magnus Hodne <magnus@drobak.org>
+    Co-authored-by: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+
+commit 74a92d6eb36861f05394076385d6accff5085601
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 11:34:29 2021 +0100
+
+    Cleanup
+
+commit c8afa941f42edc14935d3b3c5ca6545919d3262b
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 11:33:15 2021 +0100
+
+    Removed loadData function
+
+commit 702b8106dbe4193c71844ff58d07d3db3809b8fc
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 11:32:20 2021 +0100
+
+    Removed labels div
+
+commit cf871a45ed8a068c641923c7b86443e61426d029
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 11:05:27 2021 +0100
+
+    Ready() uses data property
+
+commit 220a1116ad199f216bee4f39c28cc06b2ff5bd8e
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 10:17:03 2021 +0100
+
+    Extracted data out of BubbleChart
+
+commit eea86bee62d1ad9d01d20f14f1a70b0bba446922
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 10:07:53 2021 +0100
+
+    Added BubbleChart to BubblePage, moved click function out of BubbleChart
+
+commit 823ff3a97c9bc53808f207b0d690c61794a3f875
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 16 09:49:34 2021 +0100
+
+    Added radial simulation example
+
+commit 8a5e0da0ce2c34fe30bec526d95e2d8b39163518
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 21:49:00 2021 +0100
+
+    Got text displaying (word wrap not functioning)
+
+commit 6571675f2f3e0bcea4e9c89df4eadafefdcd639a
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 21:00:22 2021 +0100
+
+    Extracted gradient method
+
+commit 97be52b9bab3230adda2701383ea2d05f63d7178
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 20:25:48 2021 +0100
+
+    Code extractions
+
+commit ef10f09f3be5b223bed7642ba5a24e31a6153fe3
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 18:58:03 2021 +0100
+
+    Implemented bubbles and collision
+
+commit c013d725b2677cd01ecca4985fc0b3ee1b71b447
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Wed Dec 15 14:11:15 2021 +0100
+
+    read from svg file
+
+commit 78e779a6eb045260d52ed04eeaad3b89912eb040
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 12:15:14 2021 +0100
+
+    Moved csv-file
+
+commit 43531264ffa46f94fa51d92879929b7aa0cf0057
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 11:40:32 2021 +0100
+
+    Added .csv file for test data, got d3.csv() working
+
+commit fabc7814143b2a40d10f1c3690f5902c1935605c
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Wed Dec 15 09:58:44 2021 +0100
+
+    Added .idea/ to gitignore (webstorm)
+
+commit fffa33096faa75080b81d1f198af58d1ab286880
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Tue Dec 14 13:58:38 2021 +0100
+
+    Imported d3, wrote an example
+
+commit 4694a6888a8dba66f3d97332672ddab89f56ebd1
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Mon Dec 13 18:03:31 2021 +0100
+
+    Changed some header scaling
+
+commit 9f7965391b0d7257a0ec15ca360a9b57c2b2e3b4
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Mon Dec 13 16:59:33 2021 +0100
+
+    Added bulma components to header
+
+commit 14883aed7785d6b18deed23915d44fdc7a7cc6ab
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Mon Dec 13 15:43:50 2021 +0100
+
+    deleted file sanBox
+
+commit ab0e74577e3fadd6ae1ec86a055780597e8c62c6
+Author: Herman Svendsen Loen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Mon Dec 13 15:38:35 2021 +0100
+
+    Feature/header component (#7)
+    
+    * added branch for Header.js
+    
+    * added some elements
+    
+    * added icons
+    
+    * Logo img
+    
+    * added logo
+    
+    * added some css
+    
+    * Added black logo
+    
+    * animated icons
+    
+    * animated icons
+    
+    * header, need some positioning work
+    
+    * rename
+    
+    * header, need some positioning work
+    
+    * details
+    
+    * wrapped header in container
+    
+    * implementation of header (Sondre & Herman)
+    
+    * added Sanbox.js
+    
+    Co-authored-by: Sondre Søvik <sondre.sovik@nostdahl.com>
+
+commit d7fc7c663cf7da74de41b0cb698182b4245b14b8
+Merge: f053824 b400353
+Author: Herman Svendsen Loen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Mon Dec 13 13:51:39 2021 +0100
+
+    Merge pull request #3 from The-13th-reason/feature/react-sandbox
+    
+    Feature/react sandbox
+
+commit b400353f0eb5414a9c827ff9e4a6bb4ed87ab470
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Mon Dec 13 13:44:20 2021 +0100
+
+    Comments and removals
+
+commit 676359e44620351b094e96f1258c197bb1ea44de
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Mon Dec 13 13:42:40 2021 +0100
+
+    Implemented routing
+
+commit f0538244b5f71ef160650fd0b07b0e5412b269d8
+Merge: fad5612 198fa89
+Author: SondreS <71085011+M0n7hy@users.noreply.github.com>
+Date:   Mon Dec 13 10:43:12 2021 +0100
+
+    Merge pull request #1 from The-13th-reason/feature/bubble-component
+    
+    Feature/bubble component
+
+commit 198fa894701f20e9f42a3c6ded2990b069a38dfa
+Author: Sondre Sovik <sondre.sovik@nostdahl.com>
+Date:   Fri Dec 10 11:59:58 2021 +0100
+
+    remove bubble from app.js, remove usestate from bubble.js
+
+commit 79e6fefd12cd4cc68a93fc726513e72b58cb6aba
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:54:47 2021 +0100
+
+    Added padding bubbles
+
+commit b1f4e80ae3e1dabccc15d905dd2f3d2ca42a9376
+Merge: 7e8732a bd2f94a
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:51:18 2021 +0100
+
+    Merge branch 'feature/bubble-component' of https://github.com/The-13th-reason/Meliora-Impact into feature/bubble-component
+
+commit 7e8732a7a081f04f6939307b51cb30e56cc1c86e
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:51:11 2021 +0100
+
+    Added padding to bubbles
+
+commit bd2f94ad3963d04c0f34a7a6ee37b524f57ead77
+Merge: 735b95d 297bd2e
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Fri Dec 10 11:48:06 2021 +0100
+
+    Merge remote-tracking branch 'origin/feature/bubble-component' into feature/bubble-component
+
+commit 735b95d38cd9afa8b79eb8e625bf4a03339b8ff9
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Fri Dec 10 11:47:54 2021 +0100
+
+    added category bubble
+
+commit 297bd2eb571235dd6eb54cc104fa033b0a0aa92c
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:46:19 2021 +0100
+
+    Changed bg color
+
+commit d16d91c19e84723f7f0051a8ac23f9cc72a3ed9b
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:44:37 2021 +0100
+
+    Fixed hover animation
+
+commit 739b0f4f89d1d6c56a80e551eb925f09beb82b2a
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:39:04 2021 +0100
+
+    Proof-of-concept bubble animations
+
+commit d6d4017fd303189757d49c1606129094dcbab1a0
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 11:31:45 2021 +0100
+
+    Centered a div
+
+commit 098c99611e22ba3e2f358a5f0a47eb8721c59d7b
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Fri Dec 10 11:24:54 2021 +0100
+
+    listed all bubbles on screen
+
+commit 3f6985bb78e93ad6fdee664fc2bf65406bb95580
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Fri Dec 10 09:42:23 2021 +0100
+
+    Removed double click
+
+commit 635afb5393568d38e9d29f6be78ec48317c93ca0
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 15:15:24 2021 +0100
+
+    Added hover animation
+
+commit b2e9846587fcbffd660e1066280dc03a2199a8b2
+Merge: 4bb5ab7 e7406bc
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 15:04:04 2021 +0100
+
+    Merge branch 'feature/bubble-component' of https://github.com/The-13th-reason/Meliora-Impact into feature/bubble-component
+
+commit 4bb5ab761bcf68ddff27c95ca9b98ffdec294e9c
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 15:03:57 2021 +0100
+
+    Animated three-stepped toggle
+
+commit e7406bcf14979b7ea5317dc27f8261fa33fd8b53
+Author: Hanna Bergsbak <hannabergsbak@hotmail.com>
+Date:   Thu Dec 9 14:50:42 2021 +0100
+
+    Gradient on bubble
+
+commit 7a120b7bff6185e72441abded25ccc601230caf2
+Author: simenhaga <simen.haga@lyse.net>
+Date:   Thu Dec 9 14:34:38 2021 +0100
+
+    Added animation to bubbles
+
+commit b9ba40d617ad4ade38afda0d6d2af2b30a9a205d
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Thu Dec 9 14:00:41 2021 +0100
+
+    bubble uses state
+
+commit 94aed6d19fdeba0d836e3a6a03e6d8786b831c6a
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Thu Dec 9 13:45:29 2021 +0100
+
+    typo
+
+commit 542243533309567228b1bcf917995d49b2a06053
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 13:43:12 2021 +0100
+
+    Added bulma to App.js
+
+commit e8f9e1a1e12649ba7cf290e7c5f1f19d0a42a785
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 13:26:05 2021 +0100
+
+    Added bulma dependency
+
+commit b3d6ac643dc5bc8c51c6a48624219a842bdfc83f
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Thu Dec 9 13:23:39 2021 +0100
+
+    added title to bubble
+
+commit 598ce11ad046c43012045366b99bff3509452a7b
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 13:20:48 2021 +0100
+
+    Fixed typo
+
+commit 84cc0b1b1ee5f3e38bcfc60307ddcc8475f21e70
+Merge: 32e935f ecff8b5
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Thu Dec 9 13:18:13 2021 +0100
+
+    Merge remote-tracking branch 'origin/feature/bubble-component' into feature/bubble-component
+
+commit 32e935fdeddb1608a582df1af2aa2efc75159f71
+Author: HermanLoen <71780070+HermanLoen@users.noreply.github.com>
+Date:   Thu Dec 9 13:03:24 2021 +0100
+
+    Started implementation of bubble.js
+
+commit ecff8b586130304199a5f36c4b12a7c42e9e33a4
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 13:00:33 2021 +0100
+
+    Initial sketch database UML diagram
+
+commit 0e5c298b52736d724134b1de766f5e4eb148c397
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 12:24:29 2021 +0100
+
+    Added Bubble.js
+
+commit fad5612b8a5db986fc1037cd4aca43a18694601e
+Author: Magnus Hodne <magnus@drobak.org>
+Date:   Thu Dec 9 11:49:50 2021 +0100
+
+    Setup react app
+
+commit 351b96d80acf20253ab4a81a1eb04611b3f99a2a
+Author: MagnusHodne <60000396+MagnusHodne@users.noreply.github.com>
+Date:   Thu Dec 9 10:08:45 2021 +0100
+
+    Initial commit
