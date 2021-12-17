@@ -72,7 +72,7 @@ class D3Component {
 
         g.append("circle")
             .attr('class', 'bubble')
-            .on('click', (d) => {setSelected(d)} )
+            .on('mouseup', (d) => {setSelected(d)} )
             .attr('fill', 'url(#gradient)')
 
         g.append("text")
