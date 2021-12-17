@@ -19,7 +19,7 @@ class D3Component {
             .append('g')
             .attr('transform', `translate(${height/2},${width/2})`) //Sets the position of the g-tag
 
-        this.circlesPadding = 8 //The amount of minimum spacing between the circles
+        this.circlesPadding = 4 //The amount of minimum spacing between the circles
         this.circlesScaleFactor = 8 //Used for setting the scale of the circles
         this.forceStrength = 0.05
 
