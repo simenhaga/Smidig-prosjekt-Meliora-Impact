@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json --port 5000",
-    "dev:server" : "nodemon server.js"
+    "dev:server" : "cd src/server && npm run dev"
   },
   "eslintConfig": {
     "extends": [
