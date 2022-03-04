@@ -1,7 +1,7 @@
 {
-  "name": "src",
+  "name": "meliora-impact",
   "version": "1.0.0",
-  "description": "",
+  "description": "Student project in agile development for Meliora Impact",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
