@@ -92,13 +92,17 @@ class D3Component {
                 console.log('New radius: ' + this.radiusScale(d.selectionType))
                 return this.radiusScale(d.selectionType) + this.circlesPadding
             } ))
+        this.radialSimulation = d3.forceSimulation()
+            .force("charge", d3.forceCollide().radius(5))
+            .force("r", d3.forceRadial((d) => { return 300 }))
+            .force('collide', d3.forceCollide( (d) => this.radiusScale(d.selectionType) + this.circlesPadding ))
 
         //This is the function that moves the bubbles for us
         const ticked = () => {
             //g.attr('cx', (d) => {return d.x}).attr('cy', (d) => {return d.y})
             g.attr('transform', (d) => { return `translate(${d.x},${d.y})`})
         }
-        this.centerSimulation.nodes(this.tagsData).on('tick', ticked)
+        this.radialSimulation.nodes(this.tagsData).on('tick', ticked)
     }
 
     updateBubbleSize = () => {
@@ -116,10 +120,7 @@ class D3Component {
             .attr('cy', () => Math.random() * height);
     }
 
-    /*this.radialSimulation = d3.forceSimulation()
-        .force("charge", d3.forceCollide().radius(5))
-        .force("r", d3.forceRadial((d) => { return 300 }))
-        .force('collide', d3.forceCollide( (d) => radiusScale(d.selectionType) + this.circlesPadding ))*/
+
 }
 
 export default D3Component;
