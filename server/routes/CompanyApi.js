@@ -1,9 +1,7 @@
-import {Router} from "express";
+import { Router } from "express";
 
-export function CompanyApi(database){
-    const router = new Router()
+export function CompanyApi(database) {
+  const router = new Router();
 
-
-
-    return router;
+  return router;
 }
