@@ -32,4 +32,8 @@ describe("User service", () => {
       expect.arrayContaining([{ name: "User 1" }])
     );
   });
+  afterEach(async () => {
+    await collection.deleteMany();
+    expect(await collection.find().toArray()).toHaveLength(0);
+  });
 });
