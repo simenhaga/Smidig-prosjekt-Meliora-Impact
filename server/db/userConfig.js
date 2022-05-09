@@ -9,6 +9,7 @@ export const newUserValidation = {
       username: {
         bsonType: "string",
         description: "must be a string",
+        unique: true,
       },
       password: {
         bsonType: "string",
