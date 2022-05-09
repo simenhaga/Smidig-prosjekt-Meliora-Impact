@@ -2,5 +2,6 @@
 node_modules/
 .parcel-cache/
 dist/
-/src/server/.env
+/server/.env
+/server/__tests__/.env
 coverage/
