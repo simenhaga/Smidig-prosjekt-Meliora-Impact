@@ -27,6 +27,10 @@
   },
   "homepage": "https://github.com/The-13th-reason/Meliora-Impact#readme",
   "devDependencies": {
-    "concurrently": "^7.1.0"
+    "concurrently": "^7.1.0",
+    "husky": "^7.0.4"
+  },
+  "dependencies": {
+    "prettier": "^2.6.2"
   }
 }
