@@ -71,7 +71,7 @@ const Footer = () => {
                                 <p className='has-text-weight-semibold'>SITE LINKS</p>
                                 <div className='siteList has-text-left' style={{listStyleType:"none"}}>
                                     <a href='#' >Home</a><br />
-                                    <a href='#'>Vison</a><br />
+                                    <a href='#'>Vision</a><br />
                                     <a href='#'>Join Us</a><br />
                                     <a href='#'>Contact</a><br />
                                     <a href='#'>Sign Up</a>

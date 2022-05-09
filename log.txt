@@ -1,0 +1,73 @@
+6d1469e - simenhaga : added log-file
+5c7a16c - Magnus Hodne : Resized bubbles container
+ce5565f - Magnus Hodne : Populated temp data, resized bubbles
+0268c1b - Magnus Hodne : Cleaned up App.js
+65808c2 - Magnus Hodne : Extracted page files to separate folder
+892eb3a - Magnus Hodne : Removed old data file
+f8dcd0b - Magnus Hodne : Removed test files
+562ba27 - Magnus Hodne : Merge feature/bubble-container into develop
+d3d9740 - Magnus Hodne : Removed background color
+8dfde89 - Magnus Hodne : Bubble collision almost finished, bug in collision when size reset
+3eca618 - Magnus Hodne : Bubbles collide on resize
+c67d239 - Magnus Hodne : Extracted bubble size method
+da2cd70 - Magnus Hodne : Updating bubbles changes size, collision not working
+9c89c76 - Magnus Hodne : Extracted d3 functionality to separate component
+ef18935 - simenhaga : fixup
+9a3a139 - simenhaga : Added Header and Footer
+ca7ae1d - Magnus Hodne : Removed margin
+e4eee08 - Magnus Hodne : Started extraction of d3 component
+7820bd1 - Simen Haga : Feature/footer component (#4)
+5edcf87 - Simen Haga : Feature/json server (#8)
+74a92d6 - Magnus Hodne : Cleanup
+c8afa94 - Magnus Hodne : Removed loadData function
+702b810 - Magnus Hodne : Removed labels div
+cf871a4 - Magnus Hodne : Ready() uses data property
+220a111 - Magnus Hodne : Extracted data out of BubbleChart
+eea86be - Magnus Hodne : Added BubbleChart to BubblePage, moved click function out of BubbleChart
+823ff3a - Magnus Hodne : Added radial simulation example
+8a5e0da - Magnus Hodne : Got text displaying (word wrap not functioning)
+6571675 - Magnus Hodne : Extracted gradient method
+97be52b - Magnus Hodne : Code extractions
+ef10f09 - Magnus Hodne : Implemented bubbles and collision
+c013d72 - HermanLoen : read from svg file
+78e779a - Magnus Hodne : Moved csv-file
+4353126 - Magnus Hodne : Added .csv file for test data, got d3.csv() working
+fabc781 - Magnus Hodne : Added .idea/ to gitignore (webstorm)
+fffa330 - Magnus Hodne : Imported d3, wrote an example
+4694a68 - Magnus Hodne : Changed some header scaling
+9f79653 - Magnus Hodne : Added bulma components to header
+14883ae - HermanLoen : deleted file sanBox
+ab0e745 - Herman Svendsen Loen : Feature/header component (#7)
+d7fc7c6 - Herman Svendsen Loen : Merge pull request #3 from The-13th-reason/feature/react-sandbox
+b400353 - Magnus Hodne : Comments and removals
+676359e - Magnus Hodne : Implemented routing
+f053824 - SondreS : Merge pull request #1 from The-13th-reason/feature/bubble-component
+198fa89 - Sondre Sovik : remove bubble from app.js, remove usestate from bubble.js
+79e6fef - Magnus Hodne : Added padding bubbles
+b1f4e80 - Magnus Hodne : Merge branch 'feature/bubble-component' of https://github.com/The-13th-reason/Meliora-Impact into feature/bubble-component
+7e8732a - Magnus Hodne : Added padding to bubbles
+bd2f94a - HermanLoen : Merge remote-tracking branch 'origin/feature/bubble-component' into feature/bubble-component
+735b95d - HermanLoen : added category bubble
+297bd2e - Magnus Hodne : Changed bg color
+d16d91c - Magnus Hodne : Fixed hover animation
+739b0f4 - Magnus Hodne : Proof-of-concept bubble animations
+d6d4017 - Magnus Hodne : Centered a div
+098c996 - HermanLoen : listed all bubbles on screen
+3f6985b - Magnus Hodne : Removed double click
+635afb5 - Magnus Hodne : Added hover animation
+b2e9846 - Magnus Hodne : Merge branch 'feature/bubble-component' of https://github.com/The-13th-reason/Meliora-Impact into feature/bubble-component
+4bb5ab7 - Magnus Hodne : Animated three-stepped toggle
+e7406bc - Hanna Bergsbak : Gradient on bubble
+7a120b7 - simenhaga : Added animation to bubbles
+b9ba40d - HermanLoen : bubble uses state
+94aed6d - HermanLoen : typo
+5422435 - Magnus Hodne : Added bulma to App.js
+e8f9e1a - Magnus Hodne : Added bulma dependency
+b3d6ac6 - HermanLoen : added title to bubble
+598ce11 - Magnus Hodne : Fixed typo
+84cc0b1 - HermanLoen : Merge remote-tracking branch 'origin/feature/bubble-component' into feature/bubble-component
+32e935f - HermanLoen : Started implementation of bubble.js
+ecff8b5 - Magnus Hodne : Initial sketch database UML diagram
+0e5c298 - Magnus Hodne : Added Bubble.js
+fad5612 - Magnus Hodne : Setup react app
+351b96d - MagnusHodne : Initial commit
