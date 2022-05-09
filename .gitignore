@@ -4,3 +4,4 @@ node_modules/
 dist/
 /src/server/.env
 coverage/
+server/.env
