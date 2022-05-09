@@ -3,37 +3,30 @@ import * as path from "path";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import { MongoClient } from "mongodb";
 import { UserController } from "./routes/UserController.js";
 import { CategoryController } from "./routes/CategoryController.js";
 import { CompanyController } from "./routes/CompanyController.js";
+import mongoose from "mongoose";
 
 dotenv.config();
-const mongoUri = process.env.MONGO_URI;
-const database = process.env.MONGO_DATABASE;
-const mongoClient = new MongoClient(mongoUri);
+mongoose.connect(
+  process.env.MONGO_URI,
+  () => {
+    console.log("Connected to MongoDB");
+  },
+  (e) => console.error(e)
+);
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-//Routes and mongodb
-
-mongoClient.connect().then(async (error) => {
-  console.log("Connected to database");
-  app.use("/api/users", UserController(mongoClient.db(database || "meloria")));
-  app.use(
-    "/api/categories",
-    CategoryController(mongoClient.db(database || "meloria"))
-  );
-  app.use(
-    "/api/companies",
-    CompanyController(mongoClient.db(database || "meloria"))
-  );
-});
+//Routes
+app.use("/api/users", UserController());
+app.use("/api/categories", CategoryController());
+app.use("/api/companies", CompanyController());
 
 //Setting up and starting the server
-
 app.use(express.static("../client/dist"));
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {

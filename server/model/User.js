@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import { Schema } from "mongoose";
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   name: String,
   googleToken: String,
   email: { type: String, lowercase: true },
@@ -9,4 +8,4 @@ const userSchema = new Schema({
   updated: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
