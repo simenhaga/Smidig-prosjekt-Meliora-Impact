@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-export function UsersApi(database) {
+export function UserController(database) {
   const router = new Router();
 
   router.get("/all", async (req, res) => {

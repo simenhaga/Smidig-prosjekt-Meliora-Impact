@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-export function CompanyApi(database) {
+export function CategoryController(database) {
   const router = new Router();
 
   return router;

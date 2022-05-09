@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import { MongoClient } from "mongodb";
-import { UsersApi } from "./routes/UsersApi.js";
-import { CategoryApi } from "./routes/CategoryApi.js";
-import { CompanyApi } from "./routes/CompanyApi.js";
+import { UserController } from "./routes/UserController.js";
+import { CategoryController } from "./routes/CategoryController.js";
+import { CompanyController } from "./routes/CompanyController.js";
 
 dotenv.config();
 const mongoUri = process.env.MONGO_URI;
@@ -21,12 +21,15 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 mongoClient.connect().then(async (error) => {
   console.log("Connected to database");
-  app.use("/api/users", UsersApi(mongoClient.db(database || "meloria")));
+  app.use("/api/users", UserController(mongoClient.db(database || "meloria")));
   app.use(
     "/api/categories",
-    CategoryApi(mongoClient.db(database || "meloria"))
+    CategoryController(mongoClient.db(database || "meloria"))
   );
-  app.use("/api/companies", CompanyApi(mongoClient.db(database || "meloria")));
+  app.use(
+    "/api/companies",
+    CompanyController(mongoClient.db(database || "meloria"))
+  );
 });
 
 //Setting up and starting the server
