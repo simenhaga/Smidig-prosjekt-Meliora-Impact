@@ -28,8 +28,8 @@ describe("Category controller", () => {
     await CategoryService.insert(testCategory);
     const response = await request(app)
       .get("/all")
-      .expect("Content-Type", /json/)
-      .expect(200);
+      .expect(200)
+      .expect("Content-Type", /json/);
     expect(response.body.all).toEqual(
       expect.arrayContaining([expect.objectContaining(testCategory)])
     );
@@ -39,9 +39,9 @@ describe("Category controller", () => {
     await request(app)
       .post("/create")
       .send(testCategory)
+      .expect(200)
       .expect("Content-Type", /json/)
-      .expect(testCategory)
-      .expect(200);
+      .expect(testCategory);
   });
 
   it("deletes a category", async () => {
