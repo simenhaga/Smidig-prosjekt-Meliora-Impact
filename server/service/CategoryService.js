@@ -10,11 +10,14 @@ const CategoryService = (function () {
     find: async function (query) {
       return await Category.find(query);
     },
-    delete: async function (query) {
+    deleteOne: async function (query) {
       return await Category.deleteOne(query);
     },
     update: async function (filter, query) {
       return await Category.updateOne(filter, query);
+    },
+    deleteMany: async function (query) {
+      return await Category.deleteMany(query);
     },
   };
 })();
