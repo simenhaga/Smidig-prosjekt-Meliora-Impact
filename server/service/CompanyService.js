@@ -1,6 +1,4 @@
-//import { Company } from "../model/Company.js";
-
-class Company {}
+import { Company } from "../model/Company.js";
 
 const CompanyService = (function () {
   return {
