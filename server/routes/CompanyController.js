@@ -1,8 +1,6 @@
 import { Router } from "express";
 import { CompanyService } from "../service/CompanyService.js";
 import bodyParser from "body-parser";
-import { CategoryService } from "../service/CategoryService";
-import { Company } from "../model/Company";
 
 export function CompanyController() {
   const router = new Router();
@@ -11,6 +9,7 @@ export function CompanyController() {
   router.get("/", async (req, res) => {
     try {
       const all = await CompanyService.find();
+      res.statusCode = 200;
       res.json({ all });
     } catch (e) {
       res.json(e);
@@ -20,15 +19,19 @@ export function CompanyController() {
   router.post("/", async (req, res) => {
     const { name, orgNr, type } = req.body;
     try {
-      if ((await CompanyService.find({ orgNr: orgNr })) === true) {
-        res.statusCode = 400;
-      } else {
+      if (!(await CompanyService.exists({ orgNr }))) {
         const result = await CompanyService.insert({ name, orgNr, type });
         res.statusCode = 201;
-        res.json(result);
+        res.body = result;
+      } else {
+        res.statusCode = 400;
+        res.body = "duplicate";
       }
     } catch (e) {
-      res.json(e);
+      res.body = e;
+    } finally {
+      res.contentType("application/json");
+      res.send();
     }
   });
 

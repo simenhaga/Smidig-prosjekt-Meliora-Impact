@@ -19,6 +19,9 @@ const CompanyService = (function () {
     deleteMany: async function (query) {
       return await Company.deleteMany(query);
     },
+    exists: async function (query) {
+      return await Company.exists(query);
+    },
   };
 })();
 

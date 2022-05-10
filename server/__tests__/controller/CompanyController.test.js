@@ -27,6 +27,10 @@ describe("Company controller", () => {
     await mongoose.connect(mongoServer.getUri());
   });
 
+  afterEach(async () => {
+    await CompanyService.deleteMany();
+  });
+
   it("fetches companies", async () => {
     const c1 = await CompanyService.insert(testCustomer);
     const c2 = await CompanyService.insert(testNonProfit);
