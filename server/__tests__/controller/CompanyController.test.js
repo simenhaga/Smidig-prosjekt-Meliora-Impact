@@ -32,21 +32,30 @@ describe("Company controller", () => {
   });
 
   it("fetches companies", async () => {
-    const c1 = await CompanyService.insert(testCustomer);
-    const c2 = await CompanyService.insert(testNonProfit);
+    await CompanyService.insert(testCustomer);
+    await CompanyService.insert(testNonProfit);
     const response = await request(app)
       .get("/")
       .expect("Content-Type", /json/)
       .expect(200);
+
+    expect(response.body.all).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining(testCustomer),
+        expect.objectContaining(testNonProfit),
+      ])
+    );
   });
 
   it("inserts a company", async () => {
-    await request(app)
+    const result = await request(app)
       .post("/")
       .send(testCustomer)
       .expect("Content-Type", /json/)
       .expect(201);
+    expect(result.body).toEqual(expect.objectContaining(testCustomer));
   });
+
   it("returns 400 on duplicate company insert", async () => {
     await request(app).post("/").send(testCustomer);
     await request(app).post("/").send(testCustomer).expect(400);
