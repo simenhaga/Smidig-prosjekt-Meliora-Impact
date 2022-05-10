@@ -10,11 +10,14 @@ const CompanyService = (function () {
     find: async function (query) {
       return await Company.find(query);
     },
-    delete: async function (query) {
+    deleteOne: async function (query) {
       return await Company.deleteOne(query);
     },
     update: async function (filter, query) {
       return await Company.updateOne(filter, query);
+    },
+    deleteMany: async function (query) {
+      return await Company.deleteMany(query);
     },
   };
 })();
