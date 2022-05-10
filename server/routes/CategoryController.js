@@ -4,8 +4,6 @@ import { CategoryService } from "../service/CategoryService.js";
 export function CategoryController() {
   const router = new Router();
 
-  router.get("/", async (req, res) => {});
-
   router.get("/all", async (req, res) => {
     try {
       const all = await CategoryService.find();
