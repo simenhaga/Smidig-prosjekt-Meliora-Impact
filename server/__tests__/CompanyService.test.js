@@ -20,6 +20,7 @@ describe("Company service", () => {
       name: "Test company",
       orgNr: 1245,
       description: "Company 1",
+      type: "non-profit",
     });
     expect(await CompanyService.find({ name: "Test company" })).toBeDefined();
   });
@@ -29,6 +30,7 @@ describe("Company service", () => {
       name: "Test company",
       orgNr: 1245,
       description: "Company 1",
+      type: "customer",
     });
     await CompanyService.update(
       { name: "Test company" },
@@ -44,6 +46,7 @@ describe("Company service", () => {
       name: "Test company",
       orgNr: 1245,
       description: "Company 1",
+      type: "non-profit",
     });
     expect(await CompanyService.find({ name: "Test company" })).toHaveLength(1);
     await CompanyService.deleteOne({ company });
@@ -55,11 +58,13 @@ describe("Company service", () => {
       name: "Test company one",
       orgNr: 1245,
       description: "Company 1",
+      type: "non-profit",
     });
     await CompanyService.insert({
       name: "Test company two",
       orgNr: 12346,
       description: "Company 2",
+      type: "non-profit",
     });
     expect(await CompanyService.find()).toHaveLength(2);
     await CompanyService.deleteMany();
