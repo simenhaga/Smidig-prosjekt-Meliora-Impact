@@ -57,14 +57,15 @@ describe("Company controller", () => {
 
     //Has the company in the body of the result
     expect(result.body).toEqual(expect.objectContaining(testCustomer));
+    //The service has the object stored
     expect(await CompanyService.find()).toEqual(
       expect.arrayContaining([expect.objectContaining(testCustomer)])
     );
   });
 
-  it("updates a company", async () => {
+  it("updates a company by org. number", async () => {
     await CompanyService.insert(testNonProfit);
-    const response = await request(app)
+    await request(app)
       .put("/update")
       .send({ orgNr: testNonProfit.orgNr, name: "Updated name" })
       .expect(200);
