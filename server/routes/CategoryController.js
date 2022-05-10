@@ -40,7 +40,14 @@ export function CategoryController() {
   });
 
   router.delete("/delete", (req, res) => {
-    throw new Error("not implemented");
+    const { name } = req.body;
+    try {
+      CategoryService.deleteOne( { name } )
+    } catch (e) {
+      res.body = e;
+    } finally {
+      res.send();
+    }
   });
 
   return router;
