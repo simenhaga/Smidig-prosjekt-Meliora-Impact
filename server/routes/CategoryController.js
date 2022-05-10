@@ -1,5 +1,5 @@
-import {Router} from "express";
-import {CategoryService} from "../service/CategoryService.js";
+import { Router } from "express";
+import { CategoryService } from "../service/CategoryService.js";
 
 export function CategoryController() {
   const router = new Router();
@@ -15,7 +15,7 @@ export function CategoryController() {
     }
   });
 
-  router.post("/", async (req, res) => {
+  router.post("/create", async (req, res) => {
     try {
       const { name } = req.body;
       const result = await CategoryService.insert({ name: name });
@@ -27,9 +27,12 @@ export function CategoryController() {
   });
 
   router.put("/update", async (req, res) => {
-    const { name } = req.body;
+    const { name, updated } = req.body;
     try {
-      const result = await CategoryService.update({ name }, { name: "hei" });
+      const result = await CategoryService.update(
+        { name: name },
+        { name: updated }
+      );
       console.log({ result });
     } catch (e) {
       res.body = e;
@@ -39,7 +42,7 @@ export function CategoryController() {
   });
 
   router.delete("/delete", (req, res) => {
-    throw new Error("not implemented")
+    throw new Error("not implemented");
   });
 
   return router;

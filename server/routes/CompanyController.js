@@ -4,9 +4,8 @@ import bodyParser from "body-parser";
 
 export function CompanyController() {
   const router = new Router();
-  router.use(bodyParser.json());
 
-  router.get("/", async (req, res) => {
+  router.get("/all", async (req, res) => {
     try {
       const all = await CompanyService.find();
       res.statusCode = 200;
@@ -16,7 +15,7 @@ export function CompanyController() {
     }
   });
 
-  router.post("/", async (req, res) => {
+  router.post("/create", async (req, res) => {
     const { name, orgNr, type } = req.body;
     try {
       if (!(await CompanyService.exists({ orgNr }))) {
@@ -33,15 +32,18 @@ export function CompanyController() {
   });
 
   router.put("/update", async (req, res) => {
-    const { id, username } = req.body;
+    const { orgNr, name } = req.body;
     try {
-      //TODO: Create update user
-    } catch (e) {}
+      const result = await CompanyService.update({ orgNr }, { name });
+      console.log({ result });
+    } catch (e) {
+      res.body = e;
+    } finally {
+      res.send();
+    }
   });
 
-  router.delete("/delete", (req, res) => {
-    //TODO: Delete user
-  });
+  router.delete("/delete", (req, res) => {});
 
   return router;
 }

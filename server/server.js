@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 //Routes
-app.use("/api/users", UserController());
-app.use("/api/categories", CategoryController());
+app.use("/api/user", UserController());
+app.use("/api/category", CategoryController());
 app.use("/api/company", CompanyController());
 
 //Setting up and starting the server

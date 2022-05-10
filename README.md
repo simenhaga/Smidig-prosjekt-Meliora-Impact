@@ -12,6 +12,6 @@
 5. Kjør `npm run dev` for å spinne opp server og client i dev-modus
 
 # Server endpoints
-* `/api/users`
-* `/api/categories`
-* `/api/companies`
+* `/api/user`
+* `/api/category`
+* `/api/company`
