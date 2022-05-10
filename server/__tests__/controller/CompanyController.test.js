@@ -38,4 +38,17 @@ describe("Company controller", () => {
 
     //expect(response.body).toEqual(expect.arrayContaining([c1, c2]));
   });
+
+  it("inserts a company", async () => {
+    await request(app)
+      .post("/")
+      .send(testCustomer)
+      .expect("Content-Type", /json/)
+      .expect(testCustomer)
+      .expect(201);
+  });
+  it("returns 400 on duplicate company insert", async () => {
+    await request(app).post("/").send(testCustomer);
+    await request(app).post("/").send(testCustomer).expect(400);
+  });
 });
