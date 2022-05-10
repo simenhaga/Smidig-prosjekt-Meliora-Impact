@@ -1,17 +1,29 @@
 import { Router } from "express";
+import { CategoryService } from "../service/CategoryService.js";
 
-export function CategoryController(database) {
+export function CategoryController() {
   const router = new Router();
 
+  router.get("/", async (req, res) => {});
+
   router.get("/all", async (req, res) => {
-    //TODO: Create get all users
+    try {
+      const all = await CategoryService.find();
+      res.json({ all });
+    } catch (e) {
+      res.json(e);
+    }
   });
 
-  router.post("/new", async (req, res) => {
-    const { id, username } = req.body;
+  router.post("/", async (req, res) => {
     try {
-      //TODO: Create post user
-    } catch (e) {}
+      const { name } = req.body;
+      const result = await CategoryService.insert({ name: name });
+      console.log(result);
+      res.json(await CategoryService.find({ name: name }));
+    } catch (e) {
+      res.json(e);
+    }
   });
 
   router.put("/update", async (req, res) => {
