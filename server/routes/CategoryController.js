@@ -1,5 +1,5 @@
-import {Router} from "express";
-import {CategoryService} from "../service/CategoryService.js";
+import { Router } from "express";
+import { CategoryService } from "../service/CategoryService.js";
 
 export function CategoryController() {
   const router = new Router();
@@ -39,7 +39,7 @@ export function CategoryController() {
   });
 
   router.delete("/delete", (req, res) => {
-    throw new Error("not implemented")
+    throw new Error("not implemented");
   });
 
   return router;
