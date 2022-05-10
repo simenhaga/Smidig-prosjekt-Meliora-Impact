@@ -1,17 +1,35 @@
 import { Router } from "express";
+import { CompanyService } from "../service/CompanyService.js";
+import bodyParser from "body-parser";
+import { CategoryService } from "../service/CategoryService";
+import { Company } from "../model/Company";
 
-export function CompanyController(database) {
+export function CompanyController() {
   const router = new Router();
+  router.use(bodyParser.json());
 
-  router.get("/all", async (req, res) => {
-    //TODO: Create get all users
+  router.get("/", async (req, res) => {
+    try {
+      const all = await CompanyService.find();
+      res.json({ all });
+    } catch (e) {
+      res.json(e);
+    }
   });
 
-  router.post("/new", async (req, res) => {
-    const { id, username } = req.body;
+  router.post("/", async (req, res) => {
+    const { name, orgNr, type } = req.body;
     try {
-      //TODO: Create post user
-    } catch (e) {}
+      if ((await CompanyService.find({ orgNr: orgNr })) === true) {
+        res.statusCode = 400;
+      } else {
+        const result = await CompanyService.insert({ name, orgNr, type });
+        res.statusCode = 201;
+        res.json(result);
+      }
+    } catch (e) {
+      res.json(e);
+    }
   });
 
   router.put("/update", async (req, res) => {

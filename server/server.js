@@ -24,7 +24,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 //Routes
 app.use("/api/users", UserController());
 app.use("/api/categories", CategoryController());
-app.use("/api/companies", CompanyController());
+app.use("/api/company", CompanyController());
 
 //Setting up and starting the server
 app.use(express.static("../client/dist"));
