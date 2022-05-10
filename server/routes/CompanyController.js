@@ -21,17 +21,14 @@ export function CompanyController() {
     try {
       if (!(await CompanyService.exists({ orgNr }))) {
         const result = await CompanyService.insert({ name, orgNr, type });
-        res.statusCode = 201;
-        res.body = result;
+        res.status(201).body = result;
       } else {
-        res.statusCode = 400;
-        res.body = "duplicate";
+        res.status(400).body = "duplicate";
       }
     } catch (e) {
       res.body = e;
     } finally {
-      res.contentType("application/json");
-      res.send();
+      res.contentType("application/json").send();
     }
   });
 
