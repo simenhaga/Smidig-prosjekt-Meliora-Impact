@@ -17,17 +17,19 @@ export function CompanyController() {
 
   router.post("/create", async (req, res) => {
     const { name, orgNr, type } = req.body;
+    let result;
     try {
       if (!(await CompanyService.exists({ orgNr }))) {
-        const result = await CompanyService.insert({ name, orgNr, type });
-        res.status(201).body = result;
+        result = await CompanyService.insert({ name, orgNr, type });
+        res.statusCode = 201;
       } else {
-        res.status(400).body = "duplicate";
+        res.statusCode = 400;
+        result = "Duplicate";
       }
     } catch (e) {
       res.body = e;
     } finally {
-      res.contentType("application/json").send();
+      res.contentType("application/json").send(result);
     }
   });
 
@@ -35,7 +37,6 @@ export function CompanyController() {
     const { orgNr, name } = req.body;
     try {
       const result = await CompanyService.update({ orgNr }, { name });
-      console.log({ result });
     } catch (e) {
       res.body = e;
     } finally {
