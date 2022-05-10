@@ -8,7 +8,7 @@ import { CategoryService } from "../../service/CategoryService";
 
 const app = express();
 app.use(bodyParser.json());
-app.use("/api/category", CategoryController);
+app.use("/", CategoryController);
 
 const testCategory = {
   name: "Test category",
