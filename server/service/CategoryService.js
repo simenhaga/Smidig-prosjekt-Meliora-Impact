@@ -1,6 +1,4 @@
-//import { Category } from "../model/Category.js";
-
-class Category {}
+import { Category } from "../model/Category.js";
 
 const CategoryService = (function () {
   return {
