@@ -56,6 +56,7 @@ describe("Company controller", () => {
       .expect("Content-Type", /json/);
 
     //Has the company in the body of the result
+    console.log(result.body);
     expect(result.body).toEqual(expect.objectContaining(testCustomer));
     //The service has the object stored
     expect(await CompanyService.find()).toEqual(
@@ -68,7 +69,7 @@ describe("Company controller", () => {
     await request(app)
       .put("/update")
       .send({ orgNr: testNonProfit.orgNr, name: "Updated name" })
-      .expect(200);
+      .expect(201);
 
     expect(await CompanyService.find()).toEqual(
       expect.arrayContaining([
@@ -80,5 +81,13 @@ describe("Company controller", () => {
   it("returns 400 on duplicate company insert", async () => {
     await request(app).post("/create").send(testCustomer);
     await request(app).post("/create").send(testCustomer).expect(400);
+  });
+
+  it("deletes a company", async () => {
+    await CompanyService.insert(testCustomer);
+    await request(app).delete("/delete").send(testCustomer).expect(200);
+    await request(app).delete("/delete").send(testNonProfit).expect(404);
+
+    expect(await CompanyService.find()).toEqual([]);
   });
 });

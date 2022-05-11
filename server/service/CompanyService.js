@@ -8,7 +8,7 @@ const CompanyService = (function () {
       return company;
     },
     find: async function (query) {
-      return await Company.find(query);
+      return await Company.find(query).then();
     },
     deleteOne: async function (query) {
       return await Company.deleteOne(query);
