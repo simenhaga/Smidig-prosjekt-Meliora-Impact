@@ -28,7 +28,8 @@
     "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
-    "mongoose": "^6.3.3"
+    "mongoose": "^6.3.3",
+    "node-fetch": "^2.6.7"
   },
   "babel": {
     "presets": [
@@ -49,6 +50,8 @@
       "!coverage/**"
     ],
     "testEnvironment": "node",
-    "setupFilesAfterEnv": ["./configureTests.js"]
+    "setupFilesAfterEnv": [
+      "./configureTests.js"
+    ]
   }
 }

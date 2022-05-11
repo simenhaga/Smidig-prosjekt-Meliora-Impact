@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
 import express from "express";
+import fetch from "node-fetch";
 
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
@@ -39,7 +39,7 @@ async function fetchUser(access_token, config) {
   }
 }
 
-export function LoginApi() {
+export function LoginController() {
   const router = new express.Router();
 
   router.get("/", async (req, res) => {
