@@ -22,7 +22,7 @@ export function CategoryController() {
     const { name, newName } = req.body;
     const result = await CategoryService.update(
       { name: name },
-      { name: updated }
+      { name: newName }
     );
     console.log(result);
 

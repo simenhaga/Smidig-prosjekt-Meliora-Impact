@@ -19,8 +19,8 @@ const CategoryService = (function () {
     deleteOne: async function (query) {
       return Category.deleteOne(query);
     },
-    update: async function (filter, query) {
-      return Category.updateOne(filter, query);
+    update: async function (filter, updatedDoc) {
+      return Category.updateOne(filter, updatedDoc);
     },
     deleteMany: async function (query) {
       return Category.deleteMany(query);
