@@ -42,7 +42,7 @@ export function CategoryController() {
   router.delete("/delete", (req, res) => {
     const { name } = req.body;
     try {
-      CategoryService.deleteOne( { name } )
+      CategoryService.deleteOne({ name });
     } catch (e) {
       res.body = e;
     } finally {
