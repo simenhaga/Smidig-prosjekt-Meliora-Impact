@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "verify": "npm run format:check && tsc && npm run lint && npm run test:coverage",
+    "verify": "npm run format:check && npm run test:coverage",
     "dev": "nodemon server.js",
     "build": "npm install",
     "start": "node server.js"
@@ -43,7 +43,6 @@
     ]
   },
   "jest": {
-    "testEnvironment": "jsdom",
     "collectCoverageFrom": [
       "**/*.js",
       "!dist/**",
