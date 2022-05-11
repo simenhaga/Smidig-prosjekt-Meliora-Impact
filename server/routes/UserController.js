@@ -4,6 +4,17 @@ import { UserService } from "../service/UserService.js";
 export function UserController(database) {
   const router = new Router();
 
+  router.get("/", async (req, res) => {
+    const { googleToken } = req.signedCookies;
+    try {
+      const signedInUser = await UserService.find({ googleToken });
+      res.statusCode = 200;
+      res.json({ signedInUser });
+    } catch (e) {
+      res.json(e);
+    }
+  });
+
   router.get("/all", async (req, res) => {
     try {
       const all = await UserService.find();
@@ -65,7 +76,7 @@ export function UserController(database) {
   });
 
   router.delete("/deleteFromGoogle", async (req, res) => {
-    //TODO; Fake because we need to implement this with cookie from google
+    //TODO: Its fake, because needs to authenticate with google/cookie
     const { email } = req.body;
     let result;
     try {
