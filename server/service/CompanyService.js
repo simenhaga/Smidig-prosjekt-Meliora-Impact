@@ -8,19 +8,22 @@ const CompanyService = (function () {
       return company;
     },
     find: async function (query) {
-      return await Company.find(query).then();
+      return Company.find(query);
+    },
+    findOne: async function (query) {
+      return Company.findOne(query);
     },
     deleteOne: async function (query) {
-      return await Company.deleteOne(query);
+      return Company.deleteOne(query);
     },
     update: async function (filter, query) {
-      return await Company.updateOne(filter, query);
+      return Company.updateOne(filter, query);
     },
     deleteMany: async function (query) {
-      return await Company.deleteMany(query);
+      return Company.deleteMany(query);
     },
     exists: async function (query) {
-      return await Company.exists(query);
+      return Company.exists(query);
     },
   };
 })();
