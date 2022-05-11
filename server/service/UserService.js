@@ -1,4 +1,5 @@
 import { User } from "../model/User.js";
+import { Company } from "../model/Company";
 
 const UserService = (function () {
   return {
@@ -18,6 +19,9 @@ const UserService = (function () {
     },
     deleteMany: async function (query) {
       return await User.deleteMany(query);
+    },
+    exists: async function (query) {
+      return await User.exists(query);
     },
   };
 })();
