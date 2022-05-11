@@ -1,5 +1,5 @@
 # Meliora Impact Case Project
-
+[![Run test](https://github.com/The-13th-reason/Meliora-Impact/actions/workflows/test.yml/badge.svg)](https://github.com/The-13th-reason/Meliora-Impact/actions/workflows/test.yml)
 ### Oppsett
 1. Git clone
 2. Kjør `npm install`
