@@ -1,17 +1,47 @@
 import { Router } from "express";
+import { UserService } from "../service/UserService.js";
+import { CompanyService } from "../service/CompanyService";
 
 export function UserController(database) {
   const router = new Router();
 
   router.get("/all", async (req, res) => {
-    //TODO: Create get all users
+    try {
+      const all = await UserService.find();
+      res.statusCode = 200;
+      res.json({ all });
+    } catch (e) {
+      res.json(e);
+    }
   });
 
-  router.post("/new", async (req, res) => {
-    const { id, username } = req.body;
+  router.post("/create", async (req, res) => {
+    const { name, email, googleToken } = req.body;
+    let result;
     try {
-      //TODO: Create post user
-    } catch (e) {}
+      if (
+        await UserService.exists(
+          { googleToken } || (await UserService.exists({ email }))
+        )
+      ) {
+        res.statusCode = 400;
+        result = {
+          err: "user already exists. please log in with another google account.",
+        };
+      } else if (!googleToken || !email) {
+        res.statusCode = 400;
+        result = {
+          err: "please log in with a googleaccount.",
+        };
+      } else {
+        result = await UserService.insert({ name, email, googleToken });
+        res.statusCode = 201;
+      }
+    } catch (e) {
+      res.body = e;
+    } finally {
+      res.send(result);
+    }
   });
 
   router.put("/update", async (req, res) => {
