@@ -10,6 +10,9 @@ const CategoryService = (function () {
     find: async function (query) {
       return Category.find(query);
     },
+    findOne: async function (query) {
+      return Category.findOne(query);
+    },
     deleteOne: async function (query) {
       return Category.deleteOne(query);
     },

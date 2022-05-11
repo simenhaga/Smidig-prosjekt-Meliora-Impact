@@ -1,23 +1,30 @@
 import { CategoryService } from "../service/CategoryService";
 
-describe("Category service", function () {
-  it("inserts and retrieves category", async function () {
-    const category = await CategoryService.insert({ name: "Test category" });
+describe("Category service", () => {
+  it("inserts and retrieves category", async () => {
+    await CategoryService.insert({ name: "Test category" });
     expect(await CategoryService.find({ name: "Test category" })).toBeDefined();
   });
 
-  it("update category", async function () {
-    const category = await CategoryService.insert({ name: "Test category" });
+  it("updates category", async () => {
+    await CategoryService.insert({ name: "Test category" });
     await CategoryService.update(
       { name: "Test category" },
       { name: "Test category with new name" }
     );
     expect(
-      await CategoryService.find({ name: "Test category with new name" })
-    ).toBeDefined();
+      await CategoryService.findOne({ name: "Test category with new name" })
+    ).toEqual(expect.objectContaining({ name: "Test category with new name" }));
   });
 
-  it("deletes single category", async function () {
+  it("finds a single category", async () => {
+    await CategoryService.insert({ name: "Test category" });
+    expect(await CategoryService.findOne({ name: "Test category" })).toEqual(
+      expect.objectContaining({ name: "Test category" })
+    );
+  });
+
+  it("deletes single category", async () => {
     const category = await CategoryService.insert({ name: "Test category" });
     expect(await CategoryService.find({ name: "Test category" })).toHaveLength(
       1
@@ -26,7 +33,7 @@ describe("Category service", function () {
     expect(await CategoryService.find()).toHaveLength(0);
   });
 
-  it("deletes all categories", async function () {
+  it("deletes all categories", async () => {
     await CategoryService.insert({ name: "Test category 1" });
     await CategoryService.insert({ name: "Test category 2" });
     expect(await CategoryService.find()).toHaveLength(2);
