@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:server",
-    "test:coverage": "cd server && npm run test:coverage",
     "test:server": "cd server && npm test",
+    "verify": "npm run verify:server && npm run format:check",
+    "verify:server": "cd server && npm run verify",
     "dev": "concurrently npm:dev:client npm:dev:server",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
