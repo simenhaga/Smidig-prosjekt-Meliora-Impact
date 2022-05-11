@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { CompanyService } from "../service/CompanyService.js";
+import bodyParser from "body-parser";
 
 export function CompanyController() {
   const router = new Router();
+  router.use(bodyParser.json());
 
   router.get("/all", async (req, res) => {
     try {
@@ -23,7 +25,7 @@ export function CompanyController() {
         res.statusCode = 201;
       } else {
         res.statusCode = 400;
-        result = "Duplicate";
+        result = { err: "Duplicate" };
       }
     } catch (e) {
       res.body = e;
@@ -70,7 +72,7 @@ export function CompanyController() {
     } catch (e) {
       res.body = e;
     } finally {
-      res.send();
+      res.send(result);
     }
   });
 
