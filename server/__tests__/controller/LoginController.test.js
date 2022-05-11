@@ -1,10 +1,6 @@
 import express from "express";
 import request from "supertest";
 import bodyParser from "body-parser";
-import { CategoryController } from "../../routes/CategoryController";
-import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
-import { CategoryService } from "../../service/CategoryService";
 
 const app = express();
 app.use(bodyParser.json());

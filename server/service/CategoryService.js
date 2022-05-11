@@ -8,16 +8,16 @@ const CategoryService = (function () {
       return category;
     },
     find: async function (query) {
-      return await Category.find(query);
+      return Category.find(query);
     },
     deleteOne: async function (query) {
-      return await Category.deleteOne(query);
+      return Category.deleteOne(query);
     },
     update: async function (filter, query) {
-      return await Category.updateOne(filter, query);
+      return Category.updateOne(filter, query);
     },
     deleteMany: async function (query) {
-      return await Category.deleteMany(query);
+      return Category.deleteMany(query);
     },
   };
 })();

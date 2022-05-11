@@ -22,15 +22,6 @@ const testNonProfit = {
 };
 
 describe("Company controller", () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(mongoServer.getUri());
-  });
-
-  afterEach(async () => {
-    await CompanyService.deleteMany();
-  });
-
   it("fetches companies", async () => {
     await CompanyService.insert(testCustomer);
     await CompanyService.insert(testNonProfit);

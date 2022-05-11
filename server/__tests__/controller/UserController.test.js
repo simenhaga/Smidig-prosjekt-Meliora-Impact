@@ -12,16 +12,6 @@ app.use(bodyParser.json());
 app.use("/", UserController());
 
 describe("User controller", () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(mongoServer.getUri());
-  });
-
-  afterEach(async () => {
-    await UserService.deleteMany();
-    expect(await UserService.find()).toHaveLength(0);
-  });
-
   const testUser = {
     name: "Test User",
     email: "test@email.com",
