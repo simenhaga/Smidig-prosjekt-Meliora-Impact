@@ -5,3 +5,4 @@ dist/
 /server/.env
 coverage/
 /src/components/Sandbox.js
+/client/components/sandbox.jsx
