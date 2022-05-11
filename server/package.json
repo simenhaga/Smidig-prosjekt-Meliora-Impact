@@ -49,6 +49,6 @@
       "!coverage/**"
     ],
     "testEnvironment": "node",
-    "setupFilesAfterEnv": ["./__tests__/setup.js"]
+    "setupFilesAfterEnv": ["./configureTests.js"]
   }
 }
