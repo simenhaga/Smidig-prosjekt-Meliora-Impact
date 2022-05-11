@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 let mongo;
 beforeAll(async () => {
   mongo = await MongoMemoryServer.create();
-  const mongoURI = await mongo.getUri();
+  const mongoURI = mongo.getUri();
 
   await mongoose.connect(mongoURI, {
     useNewUrlParser: true,
