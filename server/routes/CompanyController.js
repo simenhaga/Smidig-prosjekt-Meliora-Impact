@@ -44,7 +44,22 @@ export function CompanyController() {
     }
   });
 
-  router.delete("/delete", (req, res) => {});
+  router.delete("/delete", async (req, res) => {
+    const { orgNr } = req.body;
+    let result;
+    try {
+      result = await CompanyService.deleteOne({ orgNr });
+      if (result.deletedCount === 0) {
+        res.statusCode = 404;
+      } else {
+        res.statusCode = 200;
+      }
+    } catch (e) {
+      res.body = e;
+    } finally {
+      res.send();
+    }
+  });
 
   return router;
 }
