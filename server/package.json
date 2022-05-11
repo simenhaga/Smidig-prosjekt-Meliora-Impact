@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
+    "verify": "npm run format:check && npm run test:coverage",
     "dev": "nodemon server.js",
     "build": "npm install",
     "start": "node server.js"
