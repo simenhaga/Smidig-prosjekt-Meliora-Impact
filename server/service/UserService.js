@@ -1,5 +1,4 @@
 import { User } from "../model/User.js";
-import { Company } from "../model/Company";
 
 const UserService = (function () {
   return {
