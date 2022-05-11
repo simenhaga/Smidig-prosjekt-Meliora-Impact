@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { UserService } from "../service/UserService.js";
-import { CompanyService } from "../service/CompanyService";
 
 export function UserController(database) {
   const router = new Router();
@@ -15,7 +14,8 @@ export function UserController(database) {
     }
   });
 
-  router.post("/create", async (req, res) => {
+  router.post("/createFromGoogle", async (req, res) => {
+    //TODO: Its fake, because needs to authenticate with google/cookie
     const { name, email, googleToken } = req.body;
     let result;
     try {
@@ -44,15 +44,42 @@ export function UserController(database) {
     }
   });
 
-  router.put("/update", async (req, res) => {
-    const { id, username } = req.body;
+  router.put("/updateFromGoogle", async (req, res) => {
+    //TODO: Its fake, because needs to authenticate with google/cookie
+    const { email, updated } = req.body;
+    let result;
     try {
-      //TODO: Create update user
-    } catch (e) {}
+      if (!(await UserService.exists({ email }))) {
+        res.statusCode = 400;
+        result = { err: "bad request" };
+      } else {
+        await UserService.update({ email }, { name: updated });
+        result = await UserService.find({ name: updated });
+        res.statusCode = 201;
+      }
+    } catch (e) {
+      result = { err: e };
+    } finally {
+      res.send(result);
+    }
   });
 
-  router.delete("/delete", (req, res) => {
-    //TODO: Delete user
+  router.delete("/deleteFromGoogle", async (req, res) => {
+    //TODO; Fake because we need to implement this with cookie from google
+    const { email } = req.body;
+    let result;
+    try {
+      result = await UserService.deleteOne({ email });
+      if (result.deletedCount === 0) {
+        res.statusCode = 400;
+      } else {
+        res.statusCode = 200;
+      }
+    } catch (e) {
+      res.body = e;
+    } finally {
+      res.send(result);
+    }
   });
 
   return router;
