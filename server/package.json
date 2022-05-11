@@ -47,6 +47,8 @@
       "**/*.js",
       "!dist/**",
       "!coverage/**"
-    ]
+    ],
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["./__tests__/setup.js"]
   }
 }
