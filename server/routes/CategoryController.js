@@ -20,22 +20,14 @@ export function CategoryController() {
 
   router.put("/update", async (req, res) => {
     const { name, newName } = req.body;
-    const result = await CategoryService.update(
-      { name: name },
-      { name: newName }
-    );
-    console.log(result);
-
-    try {
+    if (await CategoryService.exists({ name })) {
       const result = await CategoryService.update(
         { name: name },
-        { name: updated }
+        { name: newName }
       );
-      console.log({ result });
-    } catch (e) {
-      res.body = e;
-    } finally {
-      res.send();
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
     }
   });
 

@@ -7,30 +7,18 @@ export function CompanyController() {
   router.use(bodyParser.json());
 
   router.get("/all", async (req, res) => {
-    try {
-      const all = await CompanyService.find();
-      res.statusCode = 200;
-      res.json({ all });
-    } catch (e) {
-      res.json(e);
-    }
+    res.json(await CompanyService.find());
   });
 
   router.post("/create", async (req, res) => {
     const { name, orgNr, type } = req.body;
     let result;
-    try {
-      if (!(await CompanyService.exists({ orgNr }))) {
-        result = await CompanyService.insert({ name, orgNr, type });
-        res.statusCode = 201;
-      } else {
-        res.statusCode = 400;
-        result = { err: "Duplicate" };
-      }
-    } catch (e) {
-      res.body = e;
-    } finally {
-      res.contentType("application/json").send(result);
+    if (!(await CompanyService.exists({ orgNr }))) {
+      result = await CompanyService.insert({ name, orgNr, type });
+      res.statusCode = 201;
+      res.json(result);
+    } else {
+      res.sendStatus(400);
     }
   });
 

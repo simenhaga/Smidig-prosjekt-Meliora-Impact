@@ -41,6 +41,19 @@ describe("Category controller", () => {
     await request(app).delete("/delete").send(testCategory).expect(404);
   });
 
+  it("updates a category or returns 404 if it doesn't exist", async () => {
+    await CategoryService.insert(testCategory);
+    await request(app)
+      .put("/update")
+      .send({ name: testCategory.name, newName: "Updated name" })
+      .expect(204);
+
+    await request(app)
+      .put("/update")
+      .send({ name: "I don't exist", newName: "I don't exist" })
+      .expect(404);
+  });
+
   it("returns 400 on duplicate category insert", async () => {
     await request(app).post("/create").send(testCategory);
     await request(app).post("/create").send(testCategory).expect(400);

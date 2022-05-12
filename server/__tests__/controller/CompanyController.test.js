@@ -31,7 +31,7 @@ describe("Company controller", () => {
       .expect(200)
       .expect("Content-Type", /json/);
 
-    expect(response.body.all).toEqual(
+    expect(response.body).toEqual(
       expect.arrayContaining([
         expect.objectContaining(testCustomer),
         expect.objectContaining(testNonProfit),
@@ -55,7 +55,7 @@ describe("Company controller", () => {
     );
   });
 
-  it("updates a company by org. number", async () => {
+  it("updates a company by org. number or returns 404 if it doesn't exist", async () => {
     await CompanyService.insert(testNonProfit);
     await request(app)
       .put("/update")
@@ -67,6 +67,11 @@ describe("Company controller", () => {
         expect.objectContaining({ name: "Updated name" }),
       ])
     );
+
+    await request(app)
+      .put("/update")
+      .send({ orgNr: 4444, name: "Test" })
+      .expect(404);
   });
 
   it("returns 400 on duplicate company insert", async () => {
