@@ -7,7 +7,7 @@ import { UserController } from "./routes/UserController.js";
 import { CategoryController } from "./routes/CategoryController.js";
 import { CompanyController } from "./routes/CompanyController.js";
 import mongoose from "mongoose";
-import { LoginApi } from "./routes/loginApi.js";
+import { LoginController } from "./routes/LoginController.js";
 
 dotenv.config();
 mongoose.connect(
@@ -26,7 +26,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use("/api/user", UserController());
 app.use("/api/category", CategoryController());
 app.use("/api/company", CompanyController());
-app.use("/api/login", LoginApi());
+app.use("/api/login", LoginController());
 
 //Setting up and starting the server
 app.use(express.static("../client/dist"));
