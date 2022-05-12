@@ -5,8 +5,10 @@ import { useLoading } from "../ library/useloading";
 import { fetchJSON } from "../ library/http";
 
 export function BubblePage() {
+  const [tags, setTags] = useState([]);
   const { loading, error, data } = useLoading(
-    async () => await fetchJSON("/api/category/all")
+    async () => await fetchJSON("/api/category/all"),
+    [tags]
   );
   if (loading) {
     return <div>Loading ....</div>;
@@ -39,7 +41,6 @@ export function BubblePage() {
     console.log(id.target.__data__);
     console.log("Should change selection of id: " + id.target.__data__.id);
   };
-  const [tags, setTags] = useState([]);
 
   return (
     <div style={{ width: "100%" }}>
@@ -49,8 +50,8 @@ export function BubblePage() {
             path="/"
             element={
               <div>
-                {tags.length > 0 ? (
-                  <BubbleChart tagsData={tags} setSelected={toggleSelected} />
+                {data.length > 0 ? (
+                  <BubbleChart tagsData={data} setSelected={toggleSelected} />
                 ) : (
                   "No categories to show"
                 )}

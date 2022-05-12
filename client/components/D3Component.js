@@ -83,7 +83,7 @@ class D3Component {
       .attr("fill", "url(#gradient)");
 
     g.append("text")
-      .text((d) => d.title)
+      .text((d) => d.name)
       .style("text-anchor", "middle");
 
     this.updateBubbleSize();

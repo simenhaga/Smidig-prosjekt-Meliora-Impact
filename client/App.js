@@ -7,7 +7,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 
-import { Header } from "./components/Header";
+import Header from "./components/Header";
 import { BubblePage } from "./pages/BubblePage";
 import Footer from "./components/Footer";
 
