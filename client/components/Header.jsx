@@ -6,7 +6,7 @@ import { FaHandshake } from "react-icons/fa";
 import { MdPermIdentity } from "react-icons/md";
 import logo from "../resources/MelioraLogoEditBlack.png";
 
-const Header = () => {
+export function Header() {
   const list = document.querySelectorAll(".list");
   function activateLink() {
     list.forEach((item) => item.classList.remove("active"));
@@ -72,6 +72,4 @@ const Header = () => {
       </div>
     </div>
   );
-};
-
-export default Header;
+}

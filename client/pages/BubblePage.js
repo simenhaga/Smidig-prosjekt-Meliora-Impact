@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import BubbleChart from "../components/BubbleChart";
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { Route, Routes } from "react-router-dom";
+import { useLoading } from "../ library/useloading";
+import { fetchJSON } from "../ library/http";
 
-const OldBubblePage = () => {
+export function BubblePage() {
+  const { loading, error, data } = useLoading(
+    async () => await fetchJSON("/api/category/all")
+  );
+  if (loading) {
+    return <div>Loading ....</div>;
+  }
+  if (error) {
+    return (
+      <div>
+        <h1>Error</h1>
+      </div>
+    );
+  }
   const alterSelection = (tag) => {
     console.log("sType before:" + tag.selectionType);
     if (tag.selectionType === 2) {
@@ -29,35 +41,8 @@ const OldBubblePage = () => {
   };
   const [tags, setTags] = useState([]);
 
-  useEffect(() => {
-    const getCategories = async () => {
-      const categoriesFromServer = await fetchCategories();
-      setTags(categoriesFromServer);
-    };
-
-    getCategories();
-  }, []);
-
-  //Fetches all categories
-  const fetchCategories = async () => {
-    const result = await fetch("http://localhost:5000/categories");
-    const data = await result.json();
-
-    return data;
-  };
-
-  const fetchCategoryById = async (id) => {
-    const result = await fetch(`http://localhost:5000/categories/${id}`);
-    const data = await result.json();
-
-    return data;
-  };
-
   return (
     <div style={{ width: "100%" }}>
-      <div className="section">
-        <Header />
-      </div>
       <section className="section bubble-container" style={{ height: "100%" }}>
         <Routes>
           <Route
@@ -74,9 +59,6 @@ const OldBubblePage = () => {
           />
         </Routes>
       </section>
-      <Footer />
     </div>
   );
-};
-
-export default OldBubblePage;
+}

@@ -1,22 +1,30 @@
-import "bulma/css/bulma.min.css";
 import React from "react";
-import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import sandbox from "./components/sandbox";
+import {
+  Link,
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 
-import OldBubblePage from "./pages/BubblePage";
+import { Header } from "./components/Header";
+import { BubblePage } from "./pages/BubblePage";
+import Footer from "./components/Footer";
 
-const App = () => {
+export function App() {
   return (
-    <div className={"App"}>
-      <Router>
+    <BrowserRouter>
+      <header>
+        <Header />
+      </header>
+      <main>
         <Routes>
-          <Route exact path="/" element={<sandbox />} />
-
-          <Route exact path="/bubbles" element={<OldBubblePage />} />
+          <Route path={"/"} element={<BubblePage />} />
         </Routes>
-      </Router>
-    </div>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </BrowserRouter>
   );
-};
-
-export default App;
+}

@@ -5,7 +5,7 @@ import Dnb from "../images/dnb.png";
 import Dnv from "../images/dnv.png";
 import Entur from "../images/entur.png";
 import Microsoft from "../images/microsoft.png";
-import "./Footer.css";
+import "../css/Footer.css";
 
 const Footer = () => {
   return (

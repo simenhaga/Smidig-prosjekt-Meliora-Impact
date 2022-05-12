@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./BubbleChart.css";
+import "../css/BubbleChart.css";
 import D3Component from "./D3Component";
 
 let vis;

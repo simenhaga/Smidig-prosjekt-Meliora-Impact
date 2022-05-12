@@ -4,9 +4,12 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel watch index.html",
+    "dev": "parcel watch index.html && npm run dev:css",
     "build": "npm install --include=dev && npm run build:parcel",
-    "build:parcel": "parcel build index.html"
+    "build:parcel": "parcel build index.html",
+    "css:build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
+    "css:watch": "npm run css-build -- --watch",
+    "dev:css": "npm run css-watch"
   },
   "keywords": [],
   "author": "",
