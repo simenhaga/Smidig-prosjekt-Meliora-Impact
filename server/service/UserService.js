@@ -1,5 +1,4 @@
 import { User } from "../model/User.js";
-import { Company } from "../model/Company";
 
 const UserService = (function () {
   return {
@@ -9,19 +8,22 @@ const UserService = (function () {
       return user;
     },
     update: async function (filter, query) {
-      return await User.updateOne(filter, query);
+      return User.updateOne(filter, query);
     },
     find: async function (query) {
-      return await User.find(query);
+      return User.find(query);
+    },
+    findOne: async function (query) {
+      return User.findOne(query);
     },
     deleteOne: async function (query) {
-      return await User.deleteOne(query);
+      return User.deleteOne(query);
     },
     deleteMany: async function (query) {
-      return await User.deleteMany(query);
+      return User.deleteMany(query);
     },
     exists: async function (query) {
-      return await User.exists(query);
+      return User.exists(query);
     },
   };
 })();

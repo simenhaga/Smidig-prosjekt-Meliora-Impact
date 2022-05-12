@@ -1,8 +1,6 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
 import request from "supertest";
 import express from "express";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
 import { CategoryController } from "../../routes/CategoryController";
 import { CategoryService } from "../../service/CategoryService";
 
@@ -15,39 +13,45 @@ const testCategory = {
 };
 
 describe("Category controller", () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(mongoServer.getUri());
-  });
-
-  afterEach(async () => {
-    await CategoryService.deleteMany();
-  });
-
   it("fetches categories", async () => {
     await CategoryService.insert(testCategory);
-    const response = await request(app)
+    const res = await request(app)
       .get("/all")
       .expect(200)
       .expect("Content-Type", /json/);
-    expect(response.body.all).toEqual(
+    expect(res.body).toEqual(
       expect.arrayContaining([expect.objectContaining(testCategory)])
     );
   });
 
   it("inserts a category", async () => {
-    await request(app)
+    const res = await request(app)
       .post("/create")
       .send(testCategory)
       .expect(200)
-      .expect("Content-Type", /json/)
-      .expect(testCategory);
+      .expect("Content-Type", /json/);
+
+    expect(res.body).toEqual(expect.objectContaining(testCategory));
   });
 
-  it("deletes a category", async () => {
+  it("deletes a category or returns 404 if it doesn't exist", async () => {
     await CategoryService.insert(testCategory);
     await request(app).delete("/delete").send(testCategory).expect(200);
-    expect(CategoryService.find()).toHaveLength(0);
+    expect(await CategoryService.find()).toHaveLength(0);
+    await request(app).delete("/delete").send(testCategory).expect(404);
+  });
+
+  it("updates a category or returns 404 if it doesn't exist", async () => {
+    await CategoryService.insert(testCategory);
+    await request(app)
+      .put("/update")
+      .send({ name: testCategory.name, newName: "Updated name" })
+      .expect(204);
+
+    await request(app)
+      .put("/update")
+      .send({ name: "I don't exist", newName: "I don't exist" })
+      .expect(404);
   });
 
   it("returns 400 on duplicate category insert", async () => {

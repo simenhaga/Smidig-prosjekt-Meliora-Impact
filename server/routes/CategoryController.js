@@ -5,48 +5,39 @@ export function CategoryController() {
   const router = new Router();
 
   router.get("/all", async (req, res) => {
-    try {
-      const all = await CategoryService.find();
-      res.json({ all });
-    } catch (e) {
-      res.json(e);
-    }
+    res.json(await CategoryService.find());
   });
 
   router.post("/create", async (req, res) => {
-    try {
-      const { name } = req.body;
-      const result = await CategoryService.insert({ name: name });
-      console.log(result);
-      res.json(await CategoryService.find({ name: name }));
-    } catch (e) {
-      res.json(e);
+    const { name } = req.body;
+    if (await CategoryService.exists({ name })) {
+      res.sendStatus(400);
+    } else {
+      const result = await CategoryService.insert({ name });
+      res.json(result);
     }
   });
 
   router.put("/update", async (req, res) => {
-    const { name, updated } = req.body;
-    try {
+    const { name, newName } = req.body;
+    if (await CategoryService.exists({ name })) {
       const result = await CategoryService.update(
         { name: name },
-        { name: updated }
+        { name: newName }
       );
-      console.log({ result });
-    } catch (e) {
-      res.body = e;
-    } finally {
-      res.send();
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
     }
   });
 
-  router.delete("/delete", (req, res) => {
+  router.delete("/delete", async (req, res) => {
     const { name } = req.body;
-    try {
-      CategoryService.deleteOne({ name });
-    } catch (e) {
-      res.body = e;
-    } finally {
-      res.send();
+    const result = await CategoryService.deleteOne({ name });
+    if (result.deletedCount === 1) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(404);
     }
   });
 

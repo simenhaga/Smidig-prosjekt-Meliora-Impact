@@ -1,28 +1,24 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
-import { Company } from "../model/Company.js";
 import { CompanyService } from "../service/CompanyService";
 
+const testNonProfit = {
+  name: "Test company",
+  orgNr: 1245,
+  description: "Company 1",
+  type: "non-profit",
+};
 describe("Company service", () => {
-  beforeAll(async () => {
-    const mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(mongoServer.getUri());
-  });
-
-  afterEach(async () => {
-    await Company.deleteMany();
-    const result = await Company.find();
-    expect(result).toHaveLength(0);
-  });
-
   it("inserts and retrieves company", async () => {
-    const company = await CompanyService.insert({
-      name: "Test company",
-      orgNr: 1245,
-      description: "Company 1",
-      type: "non-profit",
-    });
-    expect(await CompanyService.find({ name: "Test company" })).toBeDefined();
+    await CompanyService.insert(testNonProfit);
+    expect(await CompanyService.find(testNonProfit)).toEqual(
+      expect.arrayContaining([expect.objectContaining(testNonProfit)])
+    );
+  });
+
+  it("finds a single company", async () => {
+    await CompanyService.insert(testNonProfit);
+    expect(await CompanyService.findOne(testNonProfit)).toEqual(
+      expect.objectContaining(testNonProfit)
+    );
   });
 
   it("update company", async function () {
