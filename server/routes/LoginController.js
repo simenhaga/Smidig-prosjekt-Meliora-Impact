@@ -55,10 +55,10 @@ export function LoginController() {
         google_access_token,
         config.google
       );
+      res.json(response);
     } else {
-      throw Error("You are missing an access token");
+      res.sendStatus(403);
     }
-    res.json(response);
   });
 
   router.delete("/", (req, res) => {

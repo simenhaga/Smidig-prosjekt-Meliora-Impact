@@ -2,9 +2,11 @@ import express from "express";
 import request from "supertest";
 import bodyParser from "body-parser";
 import { LoginController } from "../../routes/LoginController";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cookieParser("Test_secret"));
 app.use("/", LoginController());
 
 describe("Login controller", () => {
