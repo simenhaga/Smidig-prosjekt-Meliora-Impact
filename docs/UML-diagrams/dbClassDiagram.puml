@@ -1,0 +1,36 @@
+@startuml
+
+object "Category" as category{
+*id : number <<generated>>
+name: String
+description: String
+}
+
+object "Company" as company{
+*id : number <<generated>>
+*name: String,
+*orgNr: Number,
+description: String,
+categoryList: [],
+}
+
+object "User" as user{
+*id : number <<generated>>
+name: String,
+googleToken: String,
+email: String,
+*created: Date,
+updated: Date,
+}
+
+enum Type {
+NON-PROFIT
+CUSTOMER
+}
+
+company }o--|{ category
+user ||--o| company
+user }o--|{ category
+Type ||--o{company
+
+@enduml

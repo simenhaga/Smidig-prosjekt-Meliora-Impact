@@ -1,44 +1,43 @@
 {
-  "name": "meliora-impact-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "bulma": "^0.9.3",
-    "d3": "^7.2.1",
-    "json-server": "^0.17.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-router-dom": "^6.1.1",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
-  },
+  "name": "meliora-impact",
+  "version": "1.0.0",
+  "description": "Agile development project for Meliora Impact",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 5000"
+    "test": "npm run test:server",
+    "test:coverage": "npm run test:server:coverage",
+    "test:server:coverage": "cd server && npm test -- --collectCoverage",
+    "test:server": "cd server && npm test",
+    "verify": "npm run verify:server && npm run format:check",
+    "verify:server": "cd server && npm run verify",
+    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "postinstall": "npm run install:client && npm run install:server",
+    "install:client": "cd client && npm install --include=dev",
+    "install:server": "cd server && npm install",
+    "start": "cd server && npm start",
+    "format": "prettier --write **/*.{js,jsx}",
+    "format:check": "prettier --check **/*.{js,jsx}",
+    "prepare": "husky install"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-13th-reason/Meliora-Impact.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-13th-reason/Meliora-Impact/issues"
+  },
+  "homepage": "https://github.com/The-13th-reason/Meliora-Impact#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.6.2"
   }
 }
