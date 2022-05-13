@@ -55,10 +55,8 @@ export function LoginController() {
         google_access_token,
         config.google
       );
-      res.json(response);
-    } else {
-      res.sendStatus(403);
     }
+    res.json(response);
   });
 
   router.delete("/", (req, res) => {
