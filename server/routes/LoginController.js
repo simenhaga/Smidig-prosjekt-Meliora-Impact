@@ -49,16 +49,13 @@ export function LoginController() {
     const response = { config, user: {} };
 
     const { google_access_token } = req.signedCookies;
-    console.log({ google_access_token });
     if (google_access_token) {
       response.user.google = await fetchUser(
         google_access_token,
         config.google
       );
-      res.json(response);
-    } else {
-      res.sendStatus(403);
     }
+    res.json(response);
   });
 
   router.delete("/", (req, res) => {
