@@ -42,18 +42,11 @@ export function CompanyController() {
 
   router.delete("/delete", async (req, res) => {
     const { orgNr } = req.body;
-    let result;
-    try {
-      result = await CompanyService.deleteOne({ orgNr });
-      if (result.deletedCount === 0) {
-        res.statusCode = 404;
-      } else {
-        res.statusCode = 200;
-      }
-    } catch (e) {
-      res.body = e;
-    } finally {
-      res.send(result);
+    const result = await CompanyService.deleteOne({ orgNr });
+    if (result.deletedCount === 0) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(200);
     }
   });
 
