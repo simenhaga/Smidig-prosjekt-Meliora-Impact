@@ -11,8 +11,11 @@ app.use("/", LoginController());
 
 describe("Login controller", () => {
   let agent = request.agent(app);
-  it("should return 403 on get without token", async () => {
-    await agent.get("/").expect(403);
+  it("should return only config on get without token", async () => {
+    const result = await agent.get("/").expect(200);
+    expect(result.body).toEqual(
+      expect.objectContaining({ config: expect.any(Object) })
+    );
   });
 
   it("should return google login info with token", async () => {
@@ -25,7 +28,7 @@ describe("Login controller", () => {
 
   it("should sign cookies on post login", async () => {
     const access_token = "asdfasdfasdfad";
-    await agent.post("/").send(access_token).expect(200);
+    await agent.post("/google").send(access_token).expect(200);
     //throw new Error("Not testing if cookie is signed!");
   });
 });

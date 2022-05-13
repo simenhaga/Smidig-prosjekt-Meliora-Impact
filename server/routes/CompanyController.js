@@ -24,26 +24,19 @@ export function CompanyController() {
 
   router.put("/update", async (req, res) => {
     const { orgNr, name } = req.body;
-    let result;
-    try {
-      result = await CompanyService.update({ orgNr }, { name });
-      if (result.modifiedCount === 0) {
-        if (result.matchedCount === 1) {
-          res.statusCode = 409;
-          result = "Can't update with same value as before";
-        } else {
-          console.log(result);
-          res.statusCode = 404;
-          result = "Resource not found";
-        }
+    const result = await CompanyService.update({ orgNr }, { name });
+    if (result.modifiedCount === 0) {
+      if (result.matchedCount === 1) {
+        res.statusCode = 409;
+        res.send("Can't update with same value as before");
       } else {
-        res.statusCode = 201;
-        result = await CompanyService.find({ orgNr });
+        console.log(result);
+        res.statusCode = 404;
+        res.send("Resource not found");
       }
-    } catch (e) {
-      res.body = e;
-    } finally {
-      res.send(result);
+    } else {
+      res.statusCode = 201;
+      res.json(await CompanyService.find({ orgNr }));
     }
   });
 
