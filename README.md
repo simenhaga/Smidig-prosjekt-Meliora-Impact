@@ -1,5 +1,6 @@
 # Meliora Impact Case Project
 [![Run test](https://github.com/The-13th-reason/Meliora-Impact/actions/workflows/test.yml/badge.svg)](https://github.com/The-13th-reason/Meliora-Impact/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/The-13th-reason/Meliora-Impact/badge.svg?branch=feature/project-refactor&t=y6woRe)](https://coveralls.io/github/The-13th-reason/Meliora-Impact?branch=feature/project-refactor)
 ### Oppsett
 1. Git clone
 2. Kjør `npm install`
