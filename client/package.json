@@ -4,20 +4,27 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel watch index.html",
+    "dev": "parcel watch index.html && npm run dev:css",
     "build": "npm install --include=dev && npm run build:parcel",
-    "build:parcel": "parcel build index.html"
+    "build:parcel": "parcel build index.html",
+    "css:build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
+    "css:watch": "npm run css-build -- --watch",
+    "dev:css": "npm run css-watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "bulma": "^0.9.4",
+    "node-sass": "^7.0.1",
     "parcel": "^2.5.0"
   },
   "dependencies": {
     "@parcel/transformer-react-refresh-wrap": "^2.5.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "d3": "^7.4.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0"
   }
 }

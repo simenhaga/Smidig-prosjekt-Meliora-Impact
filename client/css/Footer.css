@@ -1,0 +1,20 @@
+.partnersText {
+    display: grid;
+    color: gray;
+}
+
+.line {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.siteList a, .socialList a {
+    line-height: 2rem;
+    text-decoration: none;
+    color: gray;
+}
+
+.siteList a:hover, .socialList a:hover{
+    color: black;
+}
