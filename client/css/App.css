@@ -37,3 +37,15 @@
         transform: rotate(360deg);
     }
 }
+
+#headerButton {
+    background-color: #2A293C;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    width: 8rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 18px;
+}
